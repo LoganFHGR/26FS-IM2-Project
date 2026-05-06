@@ -1,0 +1,360 @@
+:root {
+  --textcolor1: #ffffff;
+  --textcolor2: #8888b0;
+  --green: #4caf7a;
+  --red: #c53d3d;
+
+  --gold: #e8b84a;
+  --silver: #cbcbcc;
+  --platinum: #cbd8f1;
+  --palladium: #ddb3e2;
+
+  --bgcolor1: #13131e;
+
+  /*Background-Gradients */
+  --bgtotal: linear-gradient(165deg, #08080c, #0e0e1a);
+  --bgnews: linear-gradient(165deg, #08080c, #0e0e1a);
+  --bgkaufen1: linear-gradient(165deg, #05060c, #13131e);
+  --bgkaufen2: linear-gradient(120deg, transparent, rgba(217, 136, 69, 0.4));
+
+  /*Metall-Gradients */
+
+  /*Gold*/
+  --gold-btn-border: linear-gradient(
+    135deg,
+    rgba(188, 142, 33, 0.48),
+    rgba(255, 204, 84, 0.6)
+  );
+  --gold-btn-fill: linear-gradient(90deg, #13131e, #1f1a0e);
+  --gold-btn-text: linear-gradient(270deg, #fae5b7, #ffd8a5, #fae5b7);
+
+  --gold-border-left: linear-gradient(
+    235deg,
+    rgba(231, 196, 118, 0.16),
+    rgba(255, 204, 84, 0.8)
+  );
+  --gold-border-right: linear-gradient(
+    135deg,
+    rgba(231, 196, 118, 0.16),
+    rgba(255, 204, 84, 0.8)
+  );
+
+  /*Silver*/
+  --silver-btn-border: linear-gradient(
+    135deg,
+    rgba(175, 175, 175, 0.6),
+    rgba(239, 239, 239, 0.6)
+  );
+  --silver-btn-fill: linear-gradient(90deg, #13131e, #29292c);
+  --silver-btn-text: linear-gradient(90deg, #ffffff, #c4bfbf, #ffffff);
+
+  --silver-border-left: linear-gradient(
+    235deg,
+    rgba(92, 100, 115, 0.5),
+    #ffffff
+  );
+  --silver-border-right: linear-gradient(
+    135deg,
+    rgba(92, 100, 115, 0.5),
+    #ffffff
+  );
+
+  /*Platinum*/
+  --platinum-btn-border: linear-gradient(
+    135deg,
+    rgba(115, 137, 153, 0.6),
+    rgba(192, 229, 255, 0.6)
+  );
+  --platinum-btn-fill: linear-gradient(90deg, #13131e, #282f34);
+  --platinum-btn-text: linear-gradient(90deg, #ffffff, #b2c0d7, #ffffff);
+
+  --platinum-border-left: linear-gradient(
+    235deg,
+    rgba(92, 100, 115, 0.5),
+    #9ccaff
+  );
+  --platinum-border-right: linear-gradient(
+    135deg,
+    rgba(92, 100, 115, 0.5),
+    #9ccaff
+  );
+
+  /*Palladium*/
+  --palladium-btn-border: linear-gradient(
+    135deg,
+    rgba(101, 83, 110, 0.6),
+    rgba(195, 161, 212, 0.6)
+  );
+  --palladium-btn-fill: linear-gradient(90deg, #13131e, #292035);
+  --palladium-btn-text: linear-gradient(90deg, #ffffff, #cdcaeb, #ffffff);
+
+  --palladium-border-left: linear-gradient(
+    235deg,
+    rgba(127, 123, 129, 0.5),
+    #b880be
+  );
+  --palladium-border-right: linear-gradient(
+    135deg,
+    rgba(127, 123, 129, 0.5),
+    #b880be
+  );
+}
+
+.layout {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* #region Header */
+body {
+  background: var(--bgcolor1);
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.headercontainer {
+  display: grid;
+  grid-template-columns: max-content auto;
+  align-items: center;
+  gap: 15px;
+}
+
+.logocontainer {
+  width: 2rem;
+}
+
+.logocontainer img {
+  height: 2rem;
+}
+
+.titlecontainer {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-title {
+  font-weight: medium;
+  font-size: 24px;
+  background: linear-gradient(90deg, #fba249, #fdc643, #ffde65);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Fallback for Safari */
+  color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 12px;
+  font-weight: regular;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+nav a,
+nav a:visited {
+  display: grid;
+  grid-template-rows: auto max-content;
+  gap: 10px;
+  padding: 0px;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* #endregion Header */
+
+/* #region Edelmetalwahl */
+
+.edelmetal_wahl {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 10px;
+}
+
+.metal-btn {
+  border-radius: 8px;
+  padding: 8px 0px;
+  font-weight: 600;
+  height: 43px;
+  width: 73px;
+  border: 1.5px solid transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.metal-btn.gold {
+  background:
+    var(--gold-btn-fill) padding-box,
+    var(--gold-btn-border) border-box;
+  font-size: 16px;
+}
+
+.metal-btn.gold .metal-icon {
+  background: var(--gold-btn-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.metal-btn.silver {
+  background:
+    var(--silver-btn-fill) padding-box,
+    var(--silver-btn-border) border-box;
+  font-size: 16px;
+}
+
+.metal-btn.silver .metal-icon {
+  background: var(--silver-btn-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.metal-btn.platinum {
+  background:
+    var(--platinum-btn-fill) padding-box,
+    var(--platinum-btn-border) border-box;
+  font-size: 15px;
+}
+
+.metal-btn.platinum .metal-icon {
+  background: var(--platinum-btn-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.metal-btn.palladium {
+  background:
+    var(--palladium-btn-fill) padding-box,
+    var(--palladium-btn-border) border-box;
+  font-size: 14px;
+}
+
+.metal-btn.palladium .metal-icon {
+  background: var(--palladium-btn-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+
+.edelmetaltracker_container {
+    display: grid;
+    gap: 20px;
+}
+
+.price-container {
+    background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--gold-border-right) border-box;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+/* #region Währung und Einheits Buttons */
+
+.waehrungundeinheitcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.waehrungscontainer {
+    background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--textcolor2) border-box;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    display: grid;
+  padding: 20px;
+  gap: 10px;
+}
+
+.einheitscontainer {
+    background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--textcolor2) border-box;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    display: grid;
+    padding: 20px;
+    gap: 10px;
+}
+
+.buttoncontainer {
+    display: grid;
+    justify-content: center;
+}
+
+/* #endregion Währung und Einheits Buttons */
+
+/* #region Graphen */
+
+.graphcontainer{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+}
+
+/* #region Graphencontrolls */
+
+.graphcontrols-container{
+    background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--textcolor2) border-box;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    display: grid;
+    padding: 20px;
+    gap: 10px;
+}
+
+/* #endregion Graphencontrolls */
+
+
+.graph{
+        background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--textcolor2) border-box;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    display: grid;
+    padding: 20px;
+    gap: 10px;
+}
+
+
+
+/* #endregion Graphen */
+
+/* #endregion Edelmetalwalh */

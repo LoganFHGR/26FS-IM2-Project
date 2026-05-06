@@ -4,76 +4,199 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=7, initial-scale=1.0" />
     <title>Adler Metals</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <div class="headercontainer">
-        <div class="logocontainer">
-          <img class="logo" src="" alt="" />
+    <div class="layout">
+      <header>
+        <div class="headercontainer">
+          <div class="logocontainer">
+            <img class="logo" src="#" alt="Logo of an Eagle" />
+          </div>
+          <div class="titlecontainer">
+            <p class="subtitle">Edelmetallpreise in Echtzeit</p>
+          </div>
         </div>
-        <div class="titlecontainer">
-          <h1 class="site-title">Adler Metals</h1>
-          <p>Edelmetallpreise in Echtzeit</p>
-        </div>
-      </div>
 
-      <div class="navcontainer">
-        <nav>
+        <div class="navcontainer">
+          <nav>
             <a href="">Nachrichten</a>
             <a href="">Kaufen und Verkaufen</a>
-        </nav>
-      </div>
-    </header>
-
-    <section class="trackersection">
-<div class="edelmetaltracker_container">
-    <div class="edelmetal_wahl">
-          <button class="metal-btn active" data-metal="gold">
-            <span class="metal-icon" aria-hidden="true">Gold</span>
-            <span>Gold</span>
-          </button>
-          <button class="metal-btn" data-metal="silver">
-            <span class="metal-icon" aria-hidden="true">Silber</span>
-            <span>Silber</span>
-          </button>
-          <button class="metal-btn" data-metal="platinum">
-            <span class="metal-icon" aria-hidden="true">Platinum</span>
-            <span>Platin</span>
-          </button>
-          <button class="metal-btn" data-metal="palladium">
-            <span class="metal-icon" aria-hidden="true">Palladium</span>
-            <span>Palladium</span>
-          </button>
+          </nav>
         </div>
+      </header>
+
+      <section class="trackersection">
+        <div class="edelmetaltracker_container">
+          <div class="edelmetal_wahl">
+            <button class="metal-btn gold active" data-metal="gold">
+              <span class="metal-icon" aria-hidden="true">Gold</span>
+            </button>
+
+            <button class="metal-btn silver active" data-metal="silver">
+              <span class="metal-icon" aria-hidden="true">Silber</span>
+            </button>
+
+            <button class="metal-btn platinum active" data-metal="platinum">
+              <span class="metal-icon" aria-hidden="true">Platinum</span>
+            </button>
+
+            <button class="metal-btn palladium" data-metal="palladium">
+              <span class="metal-icon" aria-hidden="true">Palladium</span>
+            </button>
+          </div>
+
+          <div class="price-container">
+            <div class="price-display">
+              <div class="price-header">
+                <div class="metal-info">
+                  <h2>Gold</h2>
+                </div>
+
+                <div class="liveindicator">
+                  <span class="live-dot" aria-hidden="true"></span>
+                  <span class="live-text">LIVE</span>
+                </div>
+              </div>
+
+              <div class="price">
+                <span id="price-value" class="price-value">—</span>
+                <span id="price-currency" class="price-currency">$</span>
+                <span id="price-unit-label" class="price-unit-label">/ oz</span>
+              </div>
+
+              <div class="price-change">
+                <span id="change-icon" class="change-icon" aria-hidden="true"
+                  >—</span
+                >
+                <span id="change-value" class="change-value">N/A</span>
+                <span class="change-label">Tagesveränderung</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="waehrungundeinheitcontainer">
+            <div class="waehrungscontainer">
+              <span class="waehrungs-label"> Währung </span>
+              <div class="buttoncontainer">
+                <button class="btn-waerung">CHF</button>
+                <button class="btn-waerung">GBP</button>
+                <button class="btn-waerung">USD</button>
+                <button class="btn-waerung">EURO</button>
+              </div>
+            </div>
+            <div class="einheitscontainer">
+              <span class="einheits-label"> Einheit </span>
+              <div class="buttoncontainer">
+                <button class="btn-einheit">oz</button>
+                <button class="btn-einheit">gramm</button>
+                <button class="btn-einheit">kg</button>
+                <button class="btn-einheit">lb</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="graphcontainer">
+            <div class="graphcontrols-container">
+              <span class="graphcontrols-label">Kursverlauf</span>
+            </div>
+            <div class="graph">
+              <span class="graph-label">Gold</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="newssection">
+        <div class="newscontainer">
+          <span class="news-label"> Nachrichten </span>
+          <div class="articlecontainer">
+            <h2 class="articletitle"></h2>
+            <span class="articletext"></span>
+          </div>
+          <div class="articlecontainer">
+            <h2 class="articletitle"></h2>
+            <span class="articletext"></span>
+          </div>
+          <div class="articlecontainer">
+            <h2 class="articletitle"></h2>
+            <span class="articletext"></span>
+          </div>
+          <div class="newsimagecontainer">
+            <img
+              src="#"
+              alt="Bild einer Weltkarte mit dem Titel 'Marktanalysen & Globale Einblicke'"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="kaufen_verkaufen_section">
+        <div class="kaufen_verkaufen_container">
+          <div class="edelmetal_wahl">
+            <button class="metal-btn gold active" data-metal="gold">
+              <span class="metal-icon" aria-hidden="true">Gold</span>
+            </button>
+
+            <button class="metal-btn silver" data-metal="silver">
+              <span class="metal-icon" aria-hidden="true">Silber</span>
+            </button>
+
+            <button class="metal-btn platinum" data-metal="platinum">
+              <span class="metal-icon" aria-hidden="true">Platinum</span>
+            </button>
+
+            <button class="metal-btn palladium" data-metal="palladium">
+              <span class="metal-icon" aria-hidden="true">Palladium</span>
+            </button>
+          </div>
+
+          <div class="währungundeinheitcontainer">
+            <div class="währungscontainer">
+              <span class="währungs-label"> Währung </span>
+            </div>
+            <div class="einheitscontainer">
+              <span class="einheits-label"> Einheit </span>
+            </div>
+          </div>
+
+          <div class="kaufen_verkaufen">
+            <div class="kaufen_verkaufen_header">
+              <span class="kaufen_verkaufen-label">Kaufen</span>
+              <div class="kaufen_verkaufen-btn-toggle">
+                <button class="btn-toggle"></button>
+              </div>
+              <span class="kaufen_verkaufen-label">Verkaufen</span>
+            </div>
+            <div class="kaufen_verkaufen-interface">
+              <span class="Menge-label">Menge</span>
+              <div class="Mengeneingabe">
+                <input type="text" />
+              </div>
+              <div class="kaufen_verkaufen-btn-container">
+                <button class="kaufen_verkaufen-btn">Kaufen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bestandesrechner_container"></div>
+      </section>
+
+      <footer>
+        <div class="footer">
+          <div class="copierightcontainer">
+            <h1 class="site-title">Adler Metals</h1>
+          </div>
+
+          <div class="footer-navcontainer">
+            <nav>
+              <a href="">Impressum</a>
+              <a href="">Datenschutz</a>
+            </nav>
+          </div>
+        </div>
+      </footer>
     </div>
-</div>
-    </section>
-
-    <section class="newssection"></section>
-
-    <section class="kaufen_verkaufen_scetion"></section>
-
-    <footer></footer>
-
-    <p>
-      Welcome to Adler Metals, your trusted partner in high-quality metal
-      products. We specialize in providing a wide range of metals for various
-      industries, including construction, manufacturing, and automotive. Our
-      commitment to excellence and customer satisfaction sets us apart as a
-      leader in the metal industry.
-    </p>
-    <h2>Our Products</h2>
-    <ul>
-      <li>Steel</li>
-      <li>Aluminum</li>
-      <li>Copper</li>
-      <li>Brass</li>
-      <li>Stainless Steel</li>
-    </ul>
-    <h2>Contact Us</h2>
-    <p>
-      If you have any questions or would like to request a quote, please don't
-      hesitate to contact us:
-    </p>
   </body>
 </html>
