@@ -1,3 +1,5 @@
+/* #region Rootsettings */
+
 :root {
   --textcolor1: #ffffff;
   --textcolor2: #8888b0;
@@ -100,6 +102,8 @@
   );
 }
 
+/* #endregion Rootsettings */
+
 .layout {
   display: grid;
   align-items: center;
@@ -182,6 +186,13 @@ nav a:visited {
 
 /* #endregion Header */
 
+/* #region Tracker */
+
+.edelmetaltracker_container {
+  display: grid;
+  gap: 20px;
+}
+
 /* #region Edelmetalwahl */
 
 .edelmetal_wahl {
@@ -262,99 +273,148 @@ nav a:visited {
   color: transparent;
 }
 
+/* #endregion Edelmetalwahl */
 
-.edelmetaltracker_container {
-    display: grid;
-    gap: 20px;
-}
+/* #region Pricetracker */
 
 .price-container {
-    background:
+  background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--gold-border-right) border-box;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    padding: 20px;
-    gap: 10px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 20px;
+  gap: 10px;
 }
+
+.price-display {
+  display: grid;
+  width: 100%;
+}
+
+.price-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.liveindicator {
+  display: flex;
+  justify-content: end;
+}
+
+.price {
+  display: grid;
+  grid-template-columns: 6fr auto auto;
+  align-content: end;
+  align-items: baseline;
+  margin-bottom: 10px;
+  height: 169px;
+}
+
+#price-value {
+  font-size: 44px;
+  font-weight: bold;
+}
+
+/* #endregion Pricetracker */
 
 /* #region Währung und Einheits Buttons */
 
 .waehrungundeinheitcontainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .waehrungscontainer {
-    background:
+  background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--textcolor2) border-box;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    display: grid;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  display: grid;
   padding: 20px;
   gap: 10px;
 }
 
 .einheitscontainer {
-    background:
+  background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--textcolor2) border-box;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    display: grid;
-    padding: 20px;
-    gap: 10px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  display: grid;
+  padding: 20px;
+  gap: 10px;
 }
 
 .buttoncontainer {
-    display: grid;
-    justify-content: center;
+  display: grid;
+  justify-content: center;
 }
 
 /* #endregion Währung und Einheits Buttons */
 
 /* #region Graphen */
 
-.graphcontainer{
-    display: grid;
-    grid-template-columns: auto;
-    gap: 20px;
+.graphcontainer {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 20px;
 }
 
 /* #region Graphencontrolls */
 
-.graphcontrols-container{
-    background:
+.graphcontrols-container {
+  background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--textcolor2) border-box;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    display: grid;
-    padding: 20px;
-    gap: 10px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  display: grid;
+  padding: 20px;
+  gap: 10px;
+}
+
+.graphcontrolbtns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-zeitspanne {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--textcolor2) border-box;
+  border-radius: 8px;
+  padding: 8px 0px;
+  font-weight: 600;
+  height: 43px;
+  width: 73px;
+  border: 1.5px solid transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 }
 
 /* #endregion Graphencontrolls */
 
-
-.graph{
-        background:
+.graph {
+  background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--textcolor2) border-box;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    display: grid;
-    padding: 20px;
-    gap: 10px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  display: grid;
+  padding: 20px;
+  gap: 10px;
 }
-
-
 
 /* #endregion Graphen */
 
-/* #endregion Edelmetalwalh */
+/* #endregion Tracker */
