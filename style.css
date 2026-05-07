@@ -358,6 +358,25 @@ nav a:visited {
   justify-content: center;
 }
 
+.btn-waerung{
+    background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--textcolor2) border-box;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  display: grid;
+  padding: 20px;
+  gap: 10px;
+}
+
+#btnChf{
+  display: flex;
+}
+
+#btnGbp{
+  display: none;
+}
+
 /* #endregion Währung und Einheits Buttons */
 
 /* #region Graphen */
