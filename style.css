@@ -17,6 +17,7 @@
 
   --bgcolor1: #13131e;
   --bgcolor2: #0B0B12;
+  --bgcolor3: #1C1C2A;
 
   /*Background-Gradients */
   --bgtotal: linear-gradient(165deg, #08080c, #0e0e1a);
@@ -385,9 +386,25 @@ nav a:visited {
   gap: 10px;
 }
 
-.buttoncontainer {
+.btn-einheit {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  color: var(--textcolor1);
+  border: 1px solid transparent;
+  border-radius: 12px;
   display: grid;
+  padding: 10px 20px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.buttoncontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;;
 }
 
 
@@ -399,17 +416,16 @@ nav a:visited {
   color: var(--textcolor1);
   border: 1px solid transparent;
   border-radius: 12px;
-  display: grid;
-  padding: 15px;
-  gap: 10px;
-}
-
-#btnChf{
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
 }
 
-#btnGbp{
-  display: none;
+
+.waehrungs-label, .einheits-label {
+  color: var(--textcolor2);
+  font-size: 9px;
 }
 
 /* #endregion Währung und Einheits Buttons */
@@ -487,7 +503,26 @@ nav a:visited {
 /* #endregion Graphen */
 
 /*Nachrichten*/
-.graphcontrols-container {
+.newssection {
+  background:
+    var(--bgnews) padding-box;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.newscontainer {
+  display: flex; 
+  flex-direction: column;
+  gap: 15px;
+}
+
+.news-label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.articlecontainer {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--btn1) border-box;
@@ -495,9 +530,125 @@ nav a:visited {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  padding: 8px 15px;
-  height: 59px;
-  gap: 5px;
+  padding: 20px;
+  gap: 10px;
 }
 
-/* #endregion Tracker */
+.articletitle {
+  font-size:12px;
+}
+
+.articletext {
+  font-size:9px;
+}
+
+.weiterlesen-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.weiterlesen-btn {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  border: 1px solid transparent;
+  color: var(--textcolor1);
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 6px;
+  height: 26px;
+  width: 71px;
+
+}
+
+
+.newsimagecontainer {
+  display:none;
+}
+
+/* Kaufen Verkaufen Section*/
+
+
+.kaufen-label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.kaufen_verkaufen_section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kaufen_verkaufen_container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kaufen_verkaufen {
+  background:
+    linear-gradient(rgba(30, 93, 59, 0.25), rgba(16, 42, 28, 0.15)) padding-box,
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  min-height: 169px;
+}
+
+.kaufen_verkaufen_header {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.kaufen_verkaufen-interface {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.menge-label {
+  color: var(--textcolor2);
+  font-size: 12px;
+}
+
+.kaufen_verkaufen-btn {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  color: var(--textcolor1);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  display: grid;
+  padding: 10px 20px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.bestandesrechner_container {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  min-height: 169px;
+}
+
+/* Footer */¨
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  padding: 100px;
+}
