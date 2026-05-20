@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* #region Rootsettings */
 
 :root {
@@ -12,12 +16,17 @@
   --palladium: #ddb3e2;
 
   --bgcolor1: #13131e;
+  --bgcolor2: #0B0B12;
 
   /*Background-Gradients */
   --bgtotal: linear-gradient(165deg, #08080c, #0e0e1a);
   --bgnews: linear-gradient(165deg, #08080c, #0e0e1a);
   --bgkaufen1: linear-gradient(165deg, #05060c, #13131e);
   --bgkaufen2: linear-gradient(120deg, transparent, rgba(217, 136, 69, 0.4));
+
+  /*Button Gradients*/
+  --btn1: linear-gradient(180deg, #39394A, #8888B0);
+
 
   /*Metall-Gradients */
 
@@ -113,23 +122,25 @@
 
 /* #region Header */
 body {
-  background: var(--bgcolor1);
+  background: var(--bgcolor2);
   color: white;
   font-family: "Roboto", sans-serif;
+  margin: 30px;
 }
 
 header {
-  display: grid;
-  grid-template-columns: auto max-content;
-  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: last baseline;
+
   margin-top: 20px;
 }
 
 .headercontainer {
-  display: grid;
-  grid-template-columns: max-content auto;
-  align-items: center;
-  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .logocontainer {
@@ -141,15 +152,14 @@ header {
 }
 
 .titlecontainer {
-  display: grid;
-  grid-template-rows: auto auto;
-  align-items: center;
-  gap: 4px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .site-title {
   font-weight: medium;
-  font-size: 24px;
+  font-size: 20px;
   background: linear-gradient(90deg, #fba249, #fdc643, #ffde65);
   -webkit-background-clip: text;
   background-clip: text;
@@ -157,6 +167,8 @@ header {
   color: transparent;
   padding: 0;
   margin: 0;
+  line-height: 0.2; /* Shrinks space on both top AND bottom */
+  padding-top: 20px; /* Restores the space on top, effectively only trimming the bottom */
 }
 
 .subtitle {
@@ -164,12 +176,15 @@ header {
   font-weight: regular;
   padding: 0;
   margin: 0;
+    letter-spacing: 0.04em;
 }
 
-h2 {
+h1, h2, p {
   margin: 0;
   padding: 0;
 }
+
+
 
 nav a,
 nav a:visited {
@@ -189,15 +204,17 @@ nav a:visited {
 /* #region Tracker */
 
 .edelmetaltracker_container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+
 }
 
 /* #region Edelmetalwahl */
 
 .edelmetal_wahl {
-  display: grid;
-  grid-template-columns: repeat(4, max-content);
+  display:flex;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -206,7 +223,7 @@ nav a:visited {
   padding: 8px 0px;
   font-weight: 600;
   height: 43px;
-  width: 73px;
+  width: 100%;
   border: 1.5px solid transparent;
   display: grid;
   place-items: center;
@@ -278,47 +295,62 @@ nav a:visited {
 /* #region Pricetracker */
 
 .price-container {
-  background:
-    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
-    var(--gold-border-right) border-box;
-  border: 2px solid transparent;
-  border-radius: 12px;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  padding: 20px;
-  gap: 10px;
-}
-
-.price-display {
-  display: grid;
-  width: 100%;
+    background:
+        radial-gradient(circle at 80% 50%, rgba(253, 198, 67, 0.1) 0%, transparent 60%) padding-box,
+        linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
+        var(--gold-border-right) border-box;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 169px;
 }
 
 .price-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+
+.price-display {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; 
 }
 
 .liveindicator {
-  display: flex;
-  justify-content: end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
-.price {
-  display: grid;
-  grid-template-columns: 6fr auto auto;
-  align-content: end;
-  align-items: baseline;
-  margin-bottom: 10px;
-  height: 169px;
+.live-dot {
+    width: 5px;
+    height: 5px;
+    background-color: var(--green);
+    border-radius: 50%;
+    display: inline-block;
 }
 
-#price-value {
-  font-size: 44px;
-  font-weight: bold;
+.live-text {
+    color: var(--green);
+    font-weight: 700;
+
+}
+
+.price-value {
+    font-size: 44px;
+    font-weight: bold;
+}
+
+.price-currency, .price-unit-label, .change-value, .change-label {
+    font-size: 10px;
 }
 
 /* #endregion Pricetracker */
@@ -334,8 +366,8 @@ nav a:visited {
 .waehrungscontainer {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
-    var(--textcolor2) border-box;
-  border: 2px solid transparent;
+    var(--btn1) border-box;
+  border: 1px solid transparent;
   border-radius: 12px;
   display: grid;
   padding: 20px;
@@ -345,8 +377,8 @@ nav a:visited {
 .einheitscontainer {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
-    var(--textcolor2) border-box;
-  border: 2px solid transparent;
+    var(--btn1) border-box;
+  border: 1px solid transparent;
   border-radius: 12px;
   display: grid;
   padding: 20px;
@@ -358,14 +390,17 @@ nav a:visited {
   justify-content: center;
 }
 
+
+
 .btn-waerung{
     background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
-    var(--textcolor2) border-box;
-  border: 2px solid transparent;
+    var(--btn1) border-box;
+  color: var(--textcolor1);
+  border: 1px solid transparent;
   border-radius: 12px;
   display: grid;
-  padding: 20px;
+  padding: 15px;
   gap: 10px;
 }
 
@@ -392,33 +427,46 @@ nav a:visited {
 .graphcontrols-container {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
-    var(--textcolor2) border-box;
-  border: 2px solid transparent;
+    var(--btn1) border-box;
+  border: 1px solid transparent;
   border-radius: 12px;
-  display: grid;
-  padding: 20px;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 15px;
+  height: 59px;
+  gap: 5px;
 }
 
 .graphcontrolbtns {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.graphcontrols-label {
+  color: var(--textcolor2);
+  font-size: 9px;
 }
 
 .btn-zeitspanne {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
-    var(--textcolor2) border-box;
+    var(--btn1) border-box;
+  color: var(--textcolor1);
   border-radius: 8px;
   padding: 8px 0px;
   font-weight: 600;
-  height: 43px;
-  width: 73px;
+  font-size: 12px;
+  height: 26px;
+  width: 65px;
   border: 1.5px solid transparent;
   display: grid;
   place-items: center;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* #endregion Graphencontrolls */
@@ -426,14 +474,30 @@ nav a:visited {
 .graph {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
-    var(--textcolor2) border-box;
-  border: 2px solid transparent;
+    var(--gold-border-right) border-box;
+  border: 1px solid transparent;
   border-radius: 12px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   gap: 10px;
+  min-height: 169px;
 }
 
 /* #endregion Graphen */
+
+/*Nachrichten*/
+.graphcontrols-container {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 15px;
+  height: 59px;
+  gap: 5px;
+}
 
 /* #endregion Tracker */
