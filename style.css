@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -16,8 +18,8 @@
   --palladium: #ddb3e2;
 
   --bgcolor1: #13131e;
-  --bgcolor2: #0B0B12;
-  --bgcolor3: #1C1C2A;
+  --bgcolor2: #0b0b12;
+  --bgcolor3: #1c1c2a;
 
   /*Background-Gradients */
   --bgtotal: linear-gradient(165deg, #08080c, #0e0e1a);
@@ -26,8 +28,7 @@
   --bgkaufen2: linear-gradient(120deg, transparent, rgba(217, 136, 69, 0.4));
 
   /*Button Gradients*/
-  --btn1: linear-gradient(180deg, #39394A, #8888B0);
-
+  --btn1: linear-gradient(180deg, #39394a, #8888b0);
 
   /*Metall-Gradients */
 
@@ -177,15 +178,15 @@ header {
   font-weight: regular;
   padding: 0;
   margin: 0;
-    letter-spacing: 0.04em;
+  letter-spacing: 0.04em;
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
   margin: 0;
   padding: 0;
 }
-
-
 
 nav a,
 nav a:visited {
@@ -208,13 +209,12 @@ nav a:visited {
   display: flex;
   flex-direction: column;
   gap: 20px;
-
 }
 
 /* #region Edelmetalwahl */
 
 .edelmetal_wahl {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   gap: 10px;
 }
@@ -296,62 +296,68 @@ nav a:visited {
 /* #region Pricetracker */
 
 .price-container {
-    background:
-        radial-gradient(circle at 80% 50%, rgba(253, 198, 67, 0.1) 0%, transparent 60%) padding-box,
-        linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
-        var(--gold-border-right) border-box;
-    border: 1px solid transparent;
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 169px;
+  background:
+    radial-gradient(
+        circle at 80% 50%,
+        rgba(253, 198, 67, 0.1) 0%,
+        transparent 60%
+      )
+      padding-box,
+    linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
+    var(--gold-border-right) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 169px;
 }
 
 .price-header {
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    font-size: 14px;
-    font-weight: bold;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .price-display {
-    display: flex;
-    flex-direction: column;
-    gap: 0px; 
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
 }
 
 .liveindicator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .live-dot {
-    width: 5px;
-    height: 5px;
-    background-color: var(--green);
-    border-radius: 50%;
-    display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: var(--green);
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .live-text {
-    color: var(--green);
-    font-weight: 700;
-
+  color: var(--green);
+  font-weight: 700;
 }
 
 .price-value {
-    font-size: 44px;
-    font-weight: bold;
+  font-size: 44px;
+  font-weight: bold;
 }
 
-.price-currency, .price-unit-label, .change-value, .change-label {
-    font-size: 10px;
+.price-currency,
+.price-unit-label,
+.change-value,
+.change-label {
+  font-size: 10px;
 }
 
 /* #endregion Pricetracker */
@@ -404,13 +410,11 @@ nav a:visited {
 .buttoncontainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;;
+  gap: 10px;
 }
 
-
-
-.btn-waerung{
-    background:
+.btn-waerung {
+  background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--btn1) border-box;
   color: var(--textcolor1);
@@ -422,8 +426,8 @@ nav a:visited {
   padding: 10px 20px;
 }
 
-
-.waehrungs-label, .einheits-label {
+.waehrungs-label,
+.einheits-label {
   color: var(--textcolor2);
   font-size: 9px;
 }
@@ -487,32 +491,44 @@ nav a:visited {
 
 /* #endregion Graphencontrolls */
 
+/* #region graphdisplay */
 .graph {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--gold-border-right) border-box;
   border: 1px solid transparent;
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
   padding: 20px;
   gap: 10px;
   min-height: 169px;
 }
 
+.graphdisplaycontainer {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
 /* #endregion Graphen */
 
-/*Nachrichten*/
+/* #region Nachrichten*/
 .newssection {
-  background:
-    var(--bgnews) padding-box;
+  background: var(--bgnews) padding-box;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
 .newscontainer {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   gap: 15px;
 }
@@ -535,11 +551,11 @@ nav a:visited {
 }
 
 .articletitle {
-  font-size:12px;
+  font-size: 12px;
 }
 
 .articletext {
-  font-size:9px;
+  font-size: 9px;
 }
 
 .weiterlesen-button-container {
@@ -558,16 +574,15 @@ nav a:visited {
   border-radius: 6px;
   height: 26px;
   width: 71px;
-
 }
-
 
 .newsimagecontainer {
-  display:none;
+  display: none;
 }
 
-/* Kaufen Verkaufen Section*/
+/* #endregion Nachrichten*/
 
+/* #region Kaufen Verkaufen Section*/
 
 .kaufen-label {
   font-size: 24px;
@@ -580,7 +595,7 @@ nav a:visited {
   gap: 20px;
 }
 
-.kaufen_verkaufen_container{
+.kaufen_verkaufen_container {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -631,7 +646,6 @@ nav a:visited {
   justify-content: center;
 }
 
-
 .bestandesrechner_container {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
@@ -645,9 +659,22 @@ nav a:visited {
   min-height: 169px;
 }
 
-/* Footer */¨
+.btn-toggle{
+    background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 5px;
+}
 
-.footer {
+/* #endregion Kaufen Verkaufen Section*/
+
+/* Footer */
+¨ .footer {
   display: flex;
   flex-direction: row;
   padding: 100px;
