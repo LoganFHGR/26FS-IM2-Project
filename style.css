@@ -295,7 +295,7 @@ nav a:visited {
 
 /* #region Pricetracker */
 
-.price-container {
+.price-container-gold {
   background:
     radial-gradient(
         circle at 80% 50%,
@@ -314,12 +314,72 @@ nav a:visited {
   height: 169px;
 }
 
+.price-container-silver {
+  background:
+    radial-gradient(
+        circle at 80% 50%,
+        rgba(250, 241,220, 0.1) 0%,
+        transparent 60%
+      )
+      padding-box,
+    linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
+    var(--silver-border-right) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 169px;
+}
+
+.price-container-platinum {
+  background:
+    radial-gradient(
+        circle at 80% 50%,
+        rgba(74, 198,232, 0.1) 0%,
+        transparent 60%
+      )
+      padding-box,
+    linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
+    var(--platinum-border-right) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 169px;
+}
+
+.price-container-palladium {
+  background:
+    radial-gradient(
+        circle at 80% 50%,
+        rgba(129, 74,232, 0.1) 0%,
+        transparent 60%
+      )
+      padding-box,
+    linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
+    var(--palladium-border-right) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 169px;
+}
 .price-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
   font-weight: bold;
+}
+
+.metal-name {
+  text-transform: capitalize; 
 }
 
 .price-display {

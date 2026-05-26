@@ -25,22 +25,46 @@ async function fetchMetalPrice(code) {
     return { price: price, change: null, changePc: null, gram24k: null };
 }
 
-async function displayPrices() {
+async function displayPrices(code) {
     try {
-        const goldData = await fetchMetalPrice('XAU');
-        console.log("Fetched Gold Data:", goldData);
+        const data = await fetchMetalPrice(code);
         
         const priceElement = document.querySelector('.price-value');
         
         if (priceElement) {
-            priceElement.textContent = goldData.price.toFixed(2);
+            priceElement.textContent = data.price.toFixed(2);
         }
     } catch (error) {
         console.error("Error fetching prices:", error);
     }
 }
 
-document.addEventListener('DOMContentLoaded', displayPrices);
+document.addEventListener('DOMContentLoaded', () => {
+    displayPrices('XAU'); 
+});
 
 /*Buttons wechseln price-container*/
 
+let buttons = document.querySelectorAll('.metal-btn');
+
+buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        const metalToCode = {
+            'gold': 'XAU',
+            'silver': 'XAG',
+            'platinum': 'XPT',
+            'palladium': 'XPD'
+        }
+
+
+        let metall = button.dataset.metal
+        let container = document.getElementById('price-container');
+        let metalName = document.querySelector('.metal-name');
+        container.className = 'price-container-' + metall;
+
+        metalName.textContent = button.querySelector('.metal-icon').textContent;
+        let code = metalToCode[metall];
+        displayPrices(code);
+        console.log(button.dataset.metal);
+    });
+});
