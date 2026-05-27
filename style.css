@@ -588,10 +588,15 @@ nav a:visited {
     var(--btn1) border-box;
   border: 1px solid transparent;
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  height: 400px;
   padding: 20px;
   gap: 10px;
+}
+
+.graphdisplay {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* #endregion Graphen */
