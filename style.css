@@ -594,6 +594,10 @@ nav a:visited {
   gap: 10px;
 }
 
+#priceChart {
+  display: none;
+}
+
 .graphdisplay {
   width: 100% !important;
   height: 100% !important;
