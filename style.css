@@ -21,6 +21,15 @@
   --bgcolor2: #0b0b12;
   --bgcolor3: #1c1c2a;
 
+  /* Font Sizes */
+  --fs-2xs: 0.6875rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-display: 2.75rem;
+
   /*Background-Gradients */
   --bgtotal: linear-gradient(165deg, #08080c, #0e0e1a);
   --bgnews: linear-gradient(165deg, #08080c, #0e0e1a);
@@ -120,6 +129,8 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
+  max-width: 1114px;
+  margin-inline: auto;
 }
 
 /* #region Header */
@@ -137,6 +148,9 @@ header {
   align-items: last baseline;
 
   margin-top: 20px;
+  width: 100%;
+  max-width: 1114px;
+  margin-inline: auto;
 }
 
 .headercontainer {
@@ -161,7 +175,7 @@ header {
 
 .site-title {
   font-weight: medium;
-  font-size: 20px;
+  font-size: var(--fs-lg);
   background: linear-gradient(90deg, #fba249, #fdc643, #ffde65);
   -webkit-background-clip: text;
   background-clip: text;
@@ -174,7 +188,7 @@ header {
 }
 
 .subtitle {
-  font-size: 12px;
+  font-size: var(--fs-xs);
   font-weight: regular;
   padding: 0;
   margin: 0;
@@ -188,17 +202,46 @@ p {
   padding: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
 nav a,
 nav a:visited {
-  display: grid;
-  grid-template-rows: auto max-content;
-  gap: 10px;
+  position: relative;
   padding: 0px;
   text-decoration: none;
   color: white;
-  font-size: 13px;
+  font-size: var(--fs-sm);
   font-weight: bold;
   text-align: right;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--textcolor2);
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: var(--textcolor2);
+  text-decoration: none;
 }
 
 /* #endregion Header */
@@ -215,19 +258,23 @@ nav a:visited {
 
 .edelmetal_wahl {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 10px;
 }
 
 .metal-btn {
+  flex: 1 1 auto;
+  min-width: 80px;
   border-radius: 8px;
-  padding: 8px 0px;
+  padding: 8px 16px;
   font-weight: 600;
+  font-size: var(--fs-md);
   height: 43px;
-  width: 100%;
   border: 1.5px solid transparent;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -235,7 +282,6 @@ nav a:visited {
   background:
     var(--gold-btn-fill) padding-box,
     var(--gold-btn-border) border-box;
-  font-size: 16px;
 }
 
 .metal-btn.gold .metal-icon {
@@ -250,7 +296,6 @@ nav a:visited {
   background:
     var(--silver-btn-fill) padding-box,
     var(--silver-btn-border) border-box;
-  font-size: 16px;
 }
 
 .metal-btn.silver .metal-icon {
@@ -265,7 +310,6 @@ nav a:visited {
   background:
     var(--platinum-btn-fill) padding-box,
     var(--platinum-btn-border) border-box;
-  font-size: 15px;
 }
 
 .metal-btn.platinum .metal-icon {
@@ -280,7 +324,6 @@ nav a:visited {
   background:
     var(--palladium-btn-fill) padding-box,
     var(--palladium-btn-border) border-box;
-  font-size: 14px;
 }
 
 .metal-btn.palladium .metal-icon {
@@ -295,6 +338,16 @@ nav a:visited {
 
 /* #region Pricetracker */
 
+#price-container {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 169px;
+}
+
 .price-container-gold {
   background:
     radial-gradient(
@@ -305,13 +358,7 @@ nav a:visited {
       padding-box,
     linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
     var(--gold-border-right) border-box;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 169px;
+  
 }
 
 .price-container-silver {
@@ -324,13 +371,6 @@ nav a:visited {
       padding-box,
     linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
     var(--silver-border-right) border-box;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 169px;
 }
 
 .price-container-platinum {
@@ -343,13 +383,6 @@ nav a:visited {
       padding-box,
     linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
     var(--platinum-border-right) border-box;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 169px;
 }
 
 .price-container-palladium {
@@ -362,19 +395,12 @@ nav a:visited {
       padding-box,
     linear-gradient(var(--bgcolor1), var(--bgcolor2)) padding-box,
     var(--palladium-border-right) border-box;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 169px;
 }
 .price-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   font-weight: bold;
 }
 
@@ -426,7 +452,7 @@ nav a:visited {
 }
 
 .price-value {
-  font-size: 44px;
+  font-size: var(--fs-display);
   font-weight: bold;
 }
 
@@ -434,7 +460,7 @@ nav a:visited {
 .price-unit-label,
 .change-value,
 .change-label {
-  font-size: 10px;
+  font-size: var(--fs-2xs);
 }
 
 /* #endregion Pricetracker */
@@ -442,8 +468,8 @@ nav a:visited {
 /* #region Währung und Einheits Buttons */
 
 .waehrungundeinheitcontainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex: 1;
   gap: 20px;
 }
 
@@ -453,7 +479,8 @@ nav a:visited {
     var(--btn1) border-box;
   border: 1px solid transparent;
   border-radius: 12px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   gap: 10px;
 }
@@ -464,7 +491,8 @@ nav a:visited {
     var(--btn1) border-box;
   border: 1px solid transparent;
   border-radius: 12px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   gap: 10px;
 }
@@ -476,7 +504,6 @@ nav a:visited {
   color: var(--textcolor1);
   border: 1px solid transparent;
   border-radius: 12px;
-  display: grid;
   padding: 10px 20px;
   gap: 10px;
   display: flex;
@@ -506,7 +533,7 @@ nav a:visited {
 .waehrungs-label,
 .einheits-label {
   color: var(--textcolor2);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
 }
 
 /* #endregion Währung und Einheits Buttons */
@@ -543,7 +570,7 @@ nav a:visited {
 
 .graphcontrols-label {
   color: var(--textcolor2);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
 }
 
 .btn-zeitspanne {
@@ -554,7 +581,7 @@ nav a:visited {
   border-radius: 8px;
   padding: 8px 0px;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-xs);
   height: 26px;
   width: 65px;
   border: 1.5px solid transparent;
@@ -576,10 +603,11 @@ nav a:visited {
   border: 1px solid transparent;
   border-radius: 12px;
   display: grid;
+  grid-template-rows: minmax(0, 1fr);
 
   padding: 20px;
   gap: 10px;
-  min-height: 169px;
+  height: 300px; /* Changed from min-height to height to stop the infinite growth loop */
 }
 
 .graphdisplaycontainer {
@@ -589,7 +617,9 @@ nav a:visited {
   border: 1px solid transparent;
   border-radius: 12px;
   position: relative;
-  height: 400px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
   padding: 20px;
   gap: 10px;
 }
@@ -599,8 +629,7 @@ nav a:visited {
 }
 
 .graphdisplay {
-  width: 100% !important;
-  height: 100% !important;
+  /* Remove forced heights; Chart.js handles this via the 'responsive' option */
 }
 
 /* #endregion Graphen */
@@ -620,8 +649,9 @@ nav a:visited {
 }
 
 .news-label {
-  font-size: 24px;
+  font-size: var(--fs-xl);
   font-weight: bold;
+  padding-left: 20px;
 }
 
 .articlecontainer {
@@ -637,11 +667,11 @@ nav a:visited {
 }
 
 .articletitle {
-  font-size: 15px;
+  font-size: var(--fs-md);
 }
 
 .articletext {
-  font-size: 14px;
+  font-size: var(--fs-sm);
 }
 
 .weiterlesen-button-container {
@@ -655,7 +685,7 @@ nav a:visited {
     var(--btn1) border-box;
   border: 1px solid transparent;
   color: var(--textcolor1);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
   font-weight: bold;
   border-radius: 6px;
   height: 26px;
@@ -671,8 +701,9 @@ nav a:visited {
 /* #region Kaufen Verkaufen Section*/
 
 .kaufen-label {
-  font-size: 24px;
+  font-size: var(--fs-xl);
   font-weight: bold;
+  padding-left: 20px;
 }
 
 .kaufen_verkaufen_section {
@@ -714,7 +745,7 @@ nav a:visited {
 
 .menge-label {
   color: var(--textcolor2);
-  font-size: 12px;
+  font-size: var(--fs-xs);
 }
 
 .kaufen_verkaufen-btn {
@@ -724,7 +755,6 @@ nav a:visited {
   color: var(--textcolor1);
   border: 1px solid transparent;
   border-radius: 8px;
-  display: grid;
   padding: 10px 20px;
   gap: 10px;
   display: flex;
@@ -760,8 +790,142 @@ nav a:visited {
 /* #endregion Kaufen Verkaufen Section*/
 
 /* Footer */
-¨ .footer {
+.footer {
   display: flex;
   flex-direction: row;
   padding: 20px;
+}
+
+
+/*  Responsive Design Tablet */
+
+@media (min-width: 600px) {
+
+   /* Font Sizes Tablet */
+   :root {
+    --fs-2xs: 0.6875rem;
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
+    --fs-md: 1rem;
+
+    --fs-lg: 1.375rem;
+    --fs-xl: 1.75rem;
+    --fs-display: 3.25rem;
+   }
+
+
+  body {
+    margin: 30px 60px;
+  }
+
+  header {
+    flex-direction: row;
+    align-items: last baseline;
+  }
+
+  .newsimagecontainer {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+/*  Responsive Design Desktop */
+
+@media (min-width: 900px) {
+
+   /* Font Sizes Desktop */
+   :root {
+    --fs-2xs: 0.6875rem;
+    --fs-xs: 0.75rem;
+    --fs-md: 1rem;
+
+    --fs-sm: 0.9375rem;
+
+    --fs-lg: 1.5rem;
+    --fs-xl: 2rem;
+    --fs-display: 4rem;
+   }
+
+  .layout {
+    gap: 80px;
+  }
+
+  body {
+    margin: 30px 60px;
+  }
+
+  header {
+    flex-direction: row;
+    align-items: last baseline;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    gap: 20px
+  }
+
+  .trackersection {
+    display: flex;
+    flex-direction: row;
+    gap: 37px;
+  }
+
+  .edelmetaltracker_container {
+    flex: 420;
+    min-width: 0;
+  }
+  #price-container {
+    height: 243px;
+  }
+
+  .graphcontainer {
+    flex: 694;
+    min-width: 0;
+    align-content: start;
+  }
+
+  .graph {
+    height: 342px;
+  }
+
+
+  .kaufen-label {
+    padding-left: 0px;
+  }
+
+  .kaufen_verkaufen_body_container{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 20px;
+  }
+
+  .kaufen_verkaufen_container {
+    flex: 729;
+    min-width: 0;
+    flex-direction: row;
+  }
+
+  .kaufen_verkaufen_imagecontainer {
+    display: block;
+    flex: 385;
+    min-width: 0;
+  }
+
+  .kaufen_verkaufen_linke_spalte {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .kaufen_verkaufen_rechte_spalte {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer {
+    justify-content: space-between;
+  }
 }
