@@ -52,12 +52,19 @@ async function displayNewPrices(code) {
       priceElement.textContent = data.price.toFixed(2);
       console.log("Displayed new price");
     }
+    // Hide placeholder, show chart
+    document.getElementById("chart-placeholder").style.display = "none";
+    document.getElementById("priceChart").style.display = "block";
   } catch (error) {
     console.error("Error fetching prices:", error);
+    // Show placeholder, hide chart while loading
+    document.getElementById("chart-placeholder").style.display = "block";
+    document.getElementById("priceChart").style.display = "none";
   }
 }
 
 async function displayCachedPrices(code) {
+
   try {
     const data = cache[code].value;
 
@@ -68,11 +75,13 @@ async function displayCachedPrices(code) {
       console.log("Displayed cached price");
     }
 
-    // Hide placeholder, show chart
+    /* // Hide placeholder, show chart
     document.getElementById("chart-placeholder").style.display = "none";
-    document.getElementById("priceChart").style.display = "block";
+    document.getElementById("priceChart").style.display = "block"; */
   } catch (error) {
     console.error("Error fetching prices:", error);
+/*  document.getElementById("chart-placeholder").style.display = "block";
+    document.getElementById("priceChart").style.display = "none"; */
   }
 }
 
@@ -538,7 +547,7 @@ const chart = new Chart(canvas, {
       x: {
         ticks: {
           color: "#8888B0",
-          maxTicksLimit: 50,
+          maxTicksLimit: 10,
         },
       },
       y: {
@@ -586,4 +595,3 @@ function updateChart(metal) {
 
   renderChart(labels, values, metal);
 }
-

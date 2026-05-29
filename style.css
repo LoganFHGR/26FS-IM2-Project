@@ -604,7 +604,6 @@ nav a:hover {
   border-radius: 12px;
   display: grid;
   grid-template-rows: minmax(0, 1fr);
-
   padding: 20px;
   gap: 10px;
   height: 300px; /* Changed from min-height to height to stop the infinite growth loop */
@@ -618,18 +617,24 @@ nav a:hover {
   border-radius: 12px;
   position: relative;
   height: 100%;
-  min-height: 0;
+  min-height: 200px;
   overflow: hidden;
   padding: 20px;
   gap: 10px;
 }
 
-#priceChart {
-  display: none;
+#chart-placeholder {
+  display: none; /* Initially hidden, will be shown if there's an error */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--textcolor2);
+  font-size: var(--fs-sm);
 }
 
-.graphdisplay {
-  /* Remove forced heights; Chart.js handles this via the 'responsive' option */
+#priceChart {
+  display: block;
 }
 
 /* #endregion Graphen */
