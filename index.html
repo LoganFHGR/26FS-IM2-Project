@@ -99,7 +99,7 @@
               </div>
             </div>
           </div>
-
+        </div>
           <div class="graphcontainer">
             <div class="graphcontrols-container">
               <span class="graphcontrols-label">Kursverlauf</span>
@@ -129,138 +129,109 @@
               
             </div>
           </div>
-        </div>
       </section>
 
-      <section class="newssection">
-        <span class="news-label"> Nachrichten </span>
-        <div class="newscontainer">
-          <div class="articlecontainer">
-            <h2 class="articletitle">Dummy Title 1</h2>
-            <span class="articletext"
-              >Gold und so Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.</span
-            >
-            <div class="weiterlesen-button-container">
-              <button class="weiterlesen-btn">weiterlesen</button>
-            </div>
-          </div>
-          <div class="articlecontainer">
-            <h2 class="articletitle">Dummy Title 2</h2>
-            <span class="articletext"
-              >Orange Man Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.</span
-            >
-            <div class="weiterlesen-button-container">
-              <button class="weiterlesen-btn">weiterlesen</button>
-            </div>
-          </div>
-          <div class="articlecontainer">
-            <h2 class="articletitle">Dummy Title 3</h2>
-            <span class="articletext"
-              >Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.</span
-            >
-            <div class="weiterlesen-button-container">
-              <button class="weiterlesen-btn">weiterlesen</button>
-            </div>
-          </div>
-          <div class="newsimagecontainer">
-            <img
-              src="assets/img/News.webp"
-              alt="Bild einer Weltkarte mit dem Titel 'Marktanalysen & Globale Einblicke'"
-            />
-          </div>
-        </div>
-      </section>
+     
 
       <section class="kaufen_verkaufen_section">
-        <div class="kaufen_verkaufen_container">
-          <h1 class="kaufen-label">Kaufen & Verkaufen</h1>
-          <div class="edelmetal_wahl">
-            <button class="metal-btn gold active" data-metal="gold">
-              <span class="metal-icon" aria-hidden="true">Gold</span>
-            </button>
+        <h1 class="kaufen-label">Kaufen & Verkaufen</h1>
+        <div class="kaufen_verkaufen_body_container">
+          <div class="kaufen_verkaufen_container">
+            <div class="kaufen_verkaufen_linke_spalte">
+              <div class="edelmetal_wahl">
+                <button class="metal-btn gold active" data-metal="gold">
+                  <span class="metal-icon" aria-hidden="true">Gold</span>
+                </button>
 
-            <button class="metal-btn silver" data-metal="silver">
-              <span class="metal-icon" aria-hidden="true">Silber</span>
-            </button>
+                <button class="metal-btn silver" data-metal="silver">
+                  <span class="metal-icon" aria-hidden="true">Silber</span>
+                </button>
 
-            <button class="metal-btn platinum" data-metal="platinum">
-              <span class="metal-icon" aria-hidden="true">Platinum</span>
-            </button>
+                <button class="metal-btn platinum" data-metal="platinum">
+                  <span class="metal-icon" aria-hidden="true">Platinum</span>
+                </button>
 
-            <button class="metal-btn palladium" data-metal="palladium">
-              <span class="metal-icon" aria-hidden="true">Palladium</span>
-            </button>
+                <button class="metal-btn palladium" data-metal="palladium">
+                  <span class="metal-icon" aria-hidden="true">Palladium</span>
+                </button>
+            </div>
+                        <div class="kaufen_verkaufen">
+              <div class="kaufen_verkaufen_header">
+                <span class="kaufen_verkaufen-label">Kaufen</span>
+                <div class="kaufen_verkaufen-btn-toggle">
+                  <button class="btn-toggle"></button>
+                </div>
+                <span class="kaufen_verkaufen-label">Verkaufen</span>
+              </div>
+              <div class="kaufen_verkaufen-interface">
+                <span class="menge-label">MEINE MENGE</span>
+                <div class="mengeneingabe">
+                  <input type="text" />
+                </div>
+                <div class="kaufen_verkaufen-btn-container">
+                  <button class="kaufen_verkaufen-btn">Kaufen</button>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+
+
+
+
+            <div class="kaufen_verkaufen_rechte_spalte">
+              <div class="waehrungundeinheitcontainer">
+                <div class="waehrungscontainer">
+                  <span class="waehrungs-label"> WäHRUNG </span>
+                  <div id="waehrungbutton-container" class="buttoncontainer">
+                    <button id="btnChf" class="btn-waerung">CHF</button>
+                    <button id="btnGbp" class="btn-waerung">GBP</button>
+                    <button id="btnUsd" class="btn-waerung">USD</button>
+                    <button id="btnEuro" class="btn-waerung">EURO</button>
+                  </div>
+                </div>
+                <div class="einheitscontainer">
+                  <span class="einheits-label"> EINHEIT </span>
+                  <div class="buttoncontainer">
+                    <button class="btn-einheit">oz</button>
+                    <button class="btn-einheit">gramm</button>
+                    <button class="btn-einheit">kg</button>
+                    <button class="btn-einheit">lb</button>
+                 </div>
+                </div>
+              </div>
+              <div class="bestandsrechner">
+                <div class="kaufen_verkaufen_header">
+                <span class="kaufen_verkaufen-label">Kaufen</span>
+                <div class="kaufen_verkaufen-btn-toggle">
+                  <button class="btn-toggle"></button>
+                </div>
+                <span class="kaufen_verkaufen-label">Verkaufen</span>
+                </div>
+                <div class="kaufen_verkaufen-interface">
+                <span class="menge-label">MEINE MENGE</span>
+                <div class="mengeneingabe">
+                  <input type="text" />
+                </div>
+                <div class="kaufen_verkaufen-btn-container">
+                  <button class="kaufen_verkaufen-btn">Kaufen</button>
+                </div>
+              </div>
+              </div>
+            </div>
           </div>
-
-          <div class="waehrungundeinheitcontainer">
-            <div class="waehrungscontainer">
-              <span class="waehrungs-label"> WäHRUNG </span>
-              <div id="waehrungbutton-container" class="buttoncontainer">
-                <button id="btnChf" class="btn-waerung">CHF</button>
-                <button id="btnGbp" class="btn-waerung">GBP</button>
-                <button id="btnUsd" class="btn-waerung">USD</button>
-                <button id="btnEuro" class="btn-waerung">EURO</button>
-              </div>
-            </div>
-            <div class="einheitscontainer">
-              <span class="einheits-label"> EINHEIT </span>
-              <div class="buttoncontainer">
-                <button class="btn-einheit">oz</button>
-                <button class="btn-einheit">gramm</button>
-                <button class="btn-einheit">kg</button>
-                <button class="btn-einheit">lb</button>
-              </div>
-            </div>
+          
+          <div class="kaufen_verkaufen_imagecontainer">
+            <img
+            src="assets/img/Hands.webp"
+            alt="Bild von zwei Händen die sich die Hand gebenn"
+            />
           </div>
-
-          <div class="kaufen_verkaufen">
-            <div class="kaufen_verkaufen_header">
-              <span class="kaufen_verkaufen-label">Kaufen</span>
-              <div class="kaufen_verkaufen-btn-toggle">
-                <button class="btn-toggle"></button>
-              </div>
-              <span class="kaufen_verkaufen-label">Verkaufen</span>
-            </div>
-            <div class="kaufen_verkaufen-interface">
-              <span class="menge-label">MEINE MENGE</span>
-              <div class="mengeneingabe">
-                <input type="text" />
-              </div>
-              <div class="kaufen_verkaufen-btn-container">
-                <button class="kaufen_verkaufen-btn">Kaufen</button>
-              </div>
-            </div>
-          </div>
+          
         </div>
+        
 
-        <div class="bestandesrechner_container"></div>
+        
       </section>
 
       <footer>

@@ -1,5 +1,12 @@
 /*Metals API Gold (bis jetzt)*/
 
+const metalToCode = {
+  gold: "XAU",
+  silver: "XAG",
+  platinum: "XPT",
+  palladium: "XPD",
+};
+
 const METALS_DEV_API_KEY = "CWFSTV98PJLHWOHXULAB117HXULABDOMI";
 
 const METALS = [
@@ -88,13 +95,6 @@ let buttons = document.querySelectorAll(".metal-btn");
 
 buttons.forEach(function (button) {
   button.addEventListener("click", function () {
-    const metalToCode = {
-      gold: "XAU",
-      silver: "XAG",
-      platinum: "XPT",
-      palladium: "XPD",
-    };
-
     let metall = button.dataset.metal;
     let container = document.getElementById("price-container");
     let metalName = document.querySelector(".metal-name");
