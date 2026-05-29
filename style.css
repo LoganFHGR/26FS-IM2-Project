@@ -127,7 +127,7 @@ body {
   background: var(--bgcolor2);
   color: white;
   font-family: "Roboto", sans-serif;
-  margin: 30px;
+  margin: 20px;
 }
 
 header {
@@ -506,7 +506,7 @@ nav a:visited {
 .waehrungs-label,
 .einheits-label {
   color: var(--textcolor2);
-  font-size: 9px;
+  font-size: 11px;
 }
 
 /* #endregion Währung und Einheits Buttons */
@@ -543,7 +543,7 @@ nav a:visited {
 
 .graphcontrols-label {
   color: var(--textcolor2);
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .btn-zeitspanne {
@@ -637,11 +637,11 @@ nav a:visited {
 }
 
 .articletitle {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .articletext {
-  font-size: 9px;
+  font-size: 14px;
 }
 
 .weiterlesen-button-container {
@@ -763,5 +763,5 @@ nav a:visited {
 ¨ .footer {
   display: flex;
   flex-direction: row;
-  padding: 100px;
+  padding: 20px;
 }
