@@ -64,7 +64,6 @@ async function displayNewPrices(code) {
 }
 
 async function displayCachedPrices(code) {
-
   try {
     const data = cache[code].value;
 
@@ -80,7 +79,7 @@ async function displayCachedPrices(code) {
     document.getElementById("priceChart").style.display = "block"; */
   } catch (error) {
     console.error("Error fetching prices:", error);
-/*  document.getElementById("chart-placeholder").style.display = "block";
+    /*  document.getElementById("chart-placeholder").style.display = "block";
     document.getElementById("priceChart").style.display = "none"; */
   }
 }
@@ -130,7 +129,7 @@ buttons.forEach(function (button) {
   });
 });
 
-/* Graphen setup */
+/* #region Graphen setup */
 
 /* api Fetch */
 
@@ -595,3 +594,40 @@ function updateChart(metal) {
 
   renderChart(labels, values, metal);
 }
+
+/* #endregion Graphen setup */
+
+/* #region Toggle Button */
+
+const toggle = document.getElementById("btn-toggle");
+const interfaceContainer = document.querySelector(
+  ".kaufen_verkaufen_interfacecontainer",
+);
+const kaufenLabel = document.querySelector(
+  ".kaufen_verkaufen_header .kaufen-label",
+);
+const verkaufenLabel = document.querySelector(
+  ".kaufen_verkaufen_header .verkaufen-label",
+);
+const actionBtn = document.querySelector(".kaufen_verkaufen-btn");
+
+toggle.addEventListener("change", () => {
+  const isSelling = toggle.checked;
+
+  actionBtn.textContent = isSelling ? "Verkaufen" : "Kaufen";
+
+  kaufenLabel.style.opacity = isSelling ? "0.5" : "1";
+  kaufenLabel.style.fontSize = isSelling ? "var(--fs-sm)" : "var(--fs-md)";
+
+  verkaufenLabel.style.opacity = isSelling ? "1" : "0.5";
+  verkaufenLabel.style.fontSize = isSelling ? "var(--fs-md)" : "var(--fs-sm)";
+
+  interfaceContainer.style.background = isSelling
+    ? `linear-gradient(rgba(93, 30, 30, 0.25), rgba(42, 16, 16, 0.15)) padding-box,
+       linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+       var(--btn1) border-box`
+    : `linear-gradient(rgba(30, 93, 59, 0.25), rgba(16, 42, 28, 0.15)) padding-box,
+       linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+       var(--btn1) border-box`;
+});
+/* #endregion Toggle Button */

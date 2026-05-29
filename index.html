@@ -54,7 +54,7 @@
           <div id="price-container" class="price-container-gold">
             <div class="price-header">
               <div class="metal-info">
-                <p class= "metal-name">Gold</p>
+                <p class="metal-name">Gold</p>
               </div>
 
               <div class="liveindicator">
@@ -100,38 +100,39 @@
             </div>
           </div>
         </div>
-          <div class="graphcontainer">
-            <div class="graphcontrols-container">
-              <span class="graphcontrols-label">Kursverlauf</span>
-              <div class="graphcontrolbtns">
-                <button id="btn-1t" class="btn-zeitspanne">1T</button>
-                <button id="btn-1m" class="btn-zeitspanne">1M</button>
-                <button id="btn-ytd" class="btn-zeitspanne">YTD</button>
-                <button id="btn-all" class="btn-zeitspanne" active>All</button>
-              </div>
-            </div>
-            <div class="graph">
-              <div class="price-header">
-                <div class="metal-info">
-                  <p>Gold</p>
-                </div>
-
-                <div class="liveindicator">
-                  <span class="live-dot" aria-hidden="true"></span>
-                  <span class="live-text">LIVE</span>
-                </div>
-              </div>
-
-              <div class="graphdisplaycontainer" id="graphdisplay">
-                <p id="chart-placeholder">Lade Daten…</p>
-                <canvas class="graphdisplay" id="priceChart" aria-label="Goldpreis Chart"></canvas>
-              </div>
-              
+        <div class="graphcontainer">
+          <div class="graphcontrols-container">
+            <span class="graphcontrols-label">Kursverlauf</span>
+            <div class="graphcontrolbtns">
+              <button id="btn-1t" class="btn-zeitspanne">1T</button>
+              <button id="btn-1m" class="btn-zeitspanne">1M</button>
+              <button id="btn-ytd" class="btn-zeitspanne">YTD</button>
+              <button id="btn-all" class="btn-zeitspanne" active>All</button>
             </div>
           </div>
-      </section>
+          <div class="graph">
+            <div class="graph-header">
+              <div class="metal-info">
+                <p>Gold</p>
+              </div>
 
-     
+              <div class="liveindicator">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span class="live-text">LIVE</span>
+              </div>
+            </div>
+
+            <div class="graphdisplaycontainer" id="graphdisplay">
+              <p id="chart-placeholder">Ladet Daten…</p>
+              <canvas
+                class="graphdisplay"
+                id="priceChart"
+                aria-label="Goldpreis Chart"
+              ></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="kaufen_verkaufen_section">
         <h1 class="kaufen-label">Kaufen & Verkaufen</h1>
@@ -154,30 +155,34 @@
                 <button class="metal-btn palladium" data-metal="palladium">
                   <span class="metal-icon" aria-hidden="true">Palladium</span>
                 </button>
-            </div>
-                        <div class="kaufen_verkaufen">
-              <div class="kaufen_verkaufen_header">
-                <span class="kaufen_verkaufen-label">Kaufen</span>
-                <div class="kaufen_verkaufen-btn-toggle">
-                  <button class="btn-toggle"></button>
-                </div>
-                <span class="kaufen_verkaufen-label">Verkaufen</span>
               </div>
-              <div class="kaufen_verkaufen-interface">
-                <span class="menge-label">MEINE MENGE</span>
-                <div class="mengeneingabe">
-                  <input type="text" />
+              <div class="kaufen_verkaufen_interfacecontainer">
+                <div class="kaufen_verkaufen_header">
+                  <span class="kaufen-label">Kaufen</span>
+                  <div class="kaufen_verkaufen-btn-toggle" id="toggleBtn">
+                    <input type="checkbox" class="btn-toggle" id="btn-toggle" />
+                    <label for="btn-toggle" class="toggle-label"></label>
+                  </div>
+                  <span class="verkaufen-label">Verkaufen</span>
                 </div>
-                <div class="kaufen_verkaufen-btn-container">
-                  <button class="kaufen_verkaufen-btn">Kaufen</button>
+                <div class="kaufen_verkaufen-interface">
+                  <span class="menge-label">MEINE MENGE</span>
+                  <div class="mengeneingabe">
+                    <input
+                      class="mengeneingabeinput"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      inputmode="decimal"
+                      placeholder="0.00"
+                    />
+                  </div>
+                  <div class="kaufen_verkaufen-btn-container">
+                    <button class="kaufen_verkaufen-btn">Kaufen</button>
+                  </div>
                 </div>
               </div>
             </div>
-            </div>
-            
-
-
-
 
             <div class="kaufen_verkaufen_rechte_spalte">
               <div class="waehrungundeinheitcontainer">
@@ -197,41 +202,37 @@
                     <button class="btn-einheit">gramm</button>
                     <button class="btn-einheit">kg</button>
                     <button class="btn-einheit">lb</button>
-                 </div>
+                  </div>
                 </div>
               </div>
-              <div class="bestandsrechner">
-                <div class="kaufen_verkaufen_header">
-                <span class="kaufen_verkaufen-label">Kaufen</span>
-                <div class="kaufen_verkaufen-btn-toggle">
-                  <button class="btn-toggle"></button>
+              <div class="bestandsrechnercontainer">
+                <div class="bestandesrechener_header">
+                  <span class="kaufen_verkaufen-label">bestandesrechener</span>
                 </div>
-                <span class="kaufen_verkaufen-label">Verkaufen</span>
+                <div class="bestandesrechener-interface">
+                  <span class="menge-label">MEINE MENGE</span>
+                  <div class="mengeneingabe">
+                    <input type="text" />
+                  </div>
+                  <div class="Gesamtwert-interface">
+                    <span class="menge-label">Gesamtwert</span>
+                    <div class="mengenwertanzeige">
+                      <span class="mengenwert">0.00</span>
+                      <span class="mengenwert-waehrung">USD</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="kaufen_verkaufen-interface">
-                <span class="menge-label">MEINE MENGE</span>
-                <div class="mengeneingabe">
-                  <input type="text" />
-                </div>
-                <div class="kaufen_verkaufen-btn-container">
-                  <button class="kaufen_verkaufen-btn">Kaufen</button>
-                </div>
-              </div>
               </div>
             </div>
           </div>
-          
+
           <div class="kaufen_verkaufen_imagecontainer">
             <img
-            src="assets/img/Hands.webp"
-            alt="Bild von zwei Händen die sich die Hand gebenn"
+              src="assets/img/Hands.webp"
+              alt="Bild von zwei Händen die sich die Hand gebenn"
             />
           </div>
-          
         </div>
-        
-
-        
       </section>
 
       <footer>
