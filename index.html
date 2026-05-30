@@ -169,13 +169,19 @@
                   <span class="menge-label">MEINE MENGE</span>
                   <div class="mengeneingabe">
                     <input
-                      class="mengeneingabeinput"
                       type="number"
+                      class="mengeneingabeinput"
                       min="0"
                       step="0.01"
-                      inputmode="decimal"
+                      inputmode="numeric"
                       placeholder="0.00"
                     />
+                    <div class="einheitsanzeige">
+                      <span id="price-currency" class="price-currency">$</span>
+                      <span id="price-unit-label" class="price-unit-label"
+                        >/ oz</span
+                      >
+                    </div>
                   </div>
                   <div class="kaufen_verkaufen-btn-container">
                     <button class="kaufen_verkaufen-btn">Kaufen</button>
@@ -207,12 +213,24 @@
               </div>
               <div class="bestandsrechnercontainer">
                 <div class="bestandesrechener_header">
-                  <span class="kaufen_verkaufen-label">bestandesrechener</span>
+                  <span class="kaufen_verkaufen-label">Bestandesrechner</span>
                 </div>
-                <div class="bestandesrechener-interface">
+                <div class="bestandesrechner-interface">
                   <span class="menge-label">MEINE MENGE</span>
                   <div class="mengeneingabe">
-                    <input type="text" />
+                    <input
+                      type="number"
+                      class="mengeneingabeinput"
+                      min="0"
+                      step="0.01"
+                      inputmode="numeric"
+                      placeholder="0.00"
+                    />
+                    <div class="einheitsanzeige">
+                      <span id="price-unit-label" class="price-unit-label"
+                        >oz</span
+                      >
+                    </div>
                   </div>
                   <div class="Gesamtwert-interface">
                     <span class="menge-label">Gesamtwert</span>

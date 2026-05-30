@@ -713,7 +713,6 @@ nav a:hover {
 
 /* #region Kaufen Verkaufen Section*/
 
-
 .kaufen_verkaufen_section {
   display: flex;
   flex-direction: column;
@@ -731,6 +730,8 @@ nav a:hover {
   flex-direction: column;
   gap: 20px;
 }
+
+/* #region Kaufen Verkaufen Interface */
 
 .kaufen_verkaufen_interfacecontainer {
   background:
@@ -753,7 +754,7 @@ nav a:hover {
   gap: 15px;
 }
 
-.kaufen-label{
+.kaufen-label {
   font-size: var(--fs-md);
   font-weight: bold;
   color: var(--textcolor1);
@@ -761,11 +762,11 @@ nav a:hover {
   align-self: baseline;
 }
 
-.verkaufen-label{
+.verkaufen-label {
   font-size: var(--fs-sl);
   font-weight: bold;
   color: var(--textcolor1);
-  opacity: 0.5 ;
+  opacity: 0.5;
   align-self: baseline;
 }
 
@@ -836,6 +837,23 @@ nav a:hover {
 
 /* #region Mengeneingabe */
 
+.mengeneingabe {
+  gap: 10px;
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 56px;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -848,18 +866,41 @@ input[type="number"] {
 }
 
 .mengeneingabeinput {
+  background: transparent;
+  border: none;
+  position: relative;
+  font-size: var(--fs-sm);
+  color: var(--textcolor1);
+  height: 100%;
+  margin-left: 20px;
+}
+
+.mengeneingabeinput:focus {
+  outline: none;
+}
+
+.einheitsanzeige {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--btn1) border-box;
-  border: 1px solid transparent;
+  border: none;
+  border-left: 1px solid transparent;
   border-radius: 12px;
-  position: relative;
-  height: 100%;
-  width: 100%;
-  font-size: var(--fs-sm);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  display: flex;
+  width: 70px;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-md);
   color: var(--textcolor1);
-  padding: 20px;
-  gap: 10px;
+  align-self: stretch;
+}
+
+.einheitsanzeige span {
+  border: none;
+  background: transparent;
+  font-weight: bold;
 }
 
 /* #endregion Mengeneingabe */
@@ -870,7 +911,7 @@ input[type="number"] {
   gap: 10px;
 }
 
-.kaufen_verkaufen-btn{
+.kaufen_verkaufen-btn {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
     var(--btn1) border-box;
@@ -883,6 +924,9 @@ input[type="number"] {
   align-items: center;
 }
 
+/* #endregion Kaufen Verkaufen Interface */
+
+/* #region Bestandesrechner */
 
 .bestandsrechnercontainer {
   background:
@@ -896,6 +940,40 @@ input[type="number"] {
   gap: 10px;
   min-height: 169px;
 }
+
+.bestandesrechner-interface {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.bestandesrechner-einheitsanzeige {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--btn1) border-box;
+  border: none;
+  border-left: 1px solid transparent;
+  border-radius: 12px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  display: flex;
+  width: 70px;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-md);
+  color: var(--textcolor1);
+  align-self: stretch;
+}
+
+.Gesamtwert-interface{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+/* #endregion Bestandesrechner */
 
 /* #endregion Kaufen Verkaufen Section*/
 
