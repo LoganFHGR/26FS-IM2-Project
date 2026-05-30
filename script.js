@@ -74,7 +74,7 @@ async function displayNewPrices(code) {
 
     if (priceElement) {
       priceElement.textContent = calculatePrice(data.price).toFixed(2);
-      console.log("Prepared new price");
+      console.log("calculated new price");
     }
     // Hide placeholder, show chart
     document.getElementById("chart-placeholder").style.display = "none";
@@ -95,7 +95,7 @@ async function displayCachedPrices(code) {
 
     if (priceElement) {
        priceElement.textContent = calculatePrice(data.price).toFixed(2);
-      console.log("Prepared cached price");
+      console.log("calculated cached price");
     }
 
     /* // Hide placeholder, show chart
@@ -267,6 +267,7 @@ function waehrungSetzen(waehrung) {
   // Chart aktualisieren
   updateChart(selectedMetal);
   displayCachedPrices(metalToCode[selectedMetal]);
+  console.log("changed currency to " + waehrung);
 }
 
 /* =========================
@@ -353,6 +354,7 @@ function einheitSetzen(einheit) {
   // Chart aktualisieren
   updateChart(selectedMetal);
   displayCachedPrices(metalToCode[selectedMetal]);
+  console.log("changed unit to " + selectedUnit);
 }
 
 
