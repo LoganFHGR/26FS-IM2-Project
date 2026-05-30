@@ -139,6 +139,7 @@ buttons.forEach(function (button) {
 
 let selectedMetal = "gold";
 let selectedCurrency = "CHF";
+let selectedUnit = "OZT";       
 let selectedTimeframe = "All";
 
 /* =========================
@@ -164,50 +165,170 @@ const timeframeMap = {
 };
 
 /* =========================
-   CURRENCY BUTTONS
+   Währungs buttons
 ========================= */
 
-const currencyButtons = document.querySelectorAll(".btn-waerung");
+/* =========================
+   LOTTIE ANIMATIONEN
+========================= */
 
-currencyButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    // remove active class
-    currencyButtons.forEach((btn) => btn.classList.remove("active"));
-
-    // activate clicked button
-    button.classList.add("active");
-
-    // set currency
-    selectedCurrency = button.innerText === "EURO" ? "EUR" : button.innerText;
-
-    // update currency symbol
-    document.getElementById("price-currency").textContent =
-      currencySymbols[selectedCurrency];
-
-    // update chart
-    updateChart(selectedMetal);
-  });
+const animOben = lottie.loadAnimation({
+  container: document.getElementById("lottie-btn-oben"),
+  renderer: "svg",
+  loop: false,
+  autoplay: false,
+  path: "assets/animations/waehrungs-animation-lottie.json",
 });
 
-/* ====================
-  TIMEFRAME BUTTONS 
-  =====================*/
-
-const timeframeButtons = document.querySelectorAll(".btn-zeitspanne");
-
-timeframeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    timeframeButtons.forEach((btn) => btn.classList.remove("active"));
-
-    button.classList.add("active");
-
-    selectedTimeframe = button.innerText;
-
-    console.log(JSON.stringify(selectedTimeframe));
-
-    updateChart(selectedMetal);
-  });
+const animUnten = lottie.loadAnimation({
+  container: document.getElementById("lottie-btn-unten"),
+  renderer: "svg",
+  loop: false,
+  autoplay: false,
+  path: "assets/animations/waehrungs-animation-lottie.json",
 });
+
+// Reihenfolge + zugehörige Frames an EINEM Ort
+const WAEHRUNGS_REIHENFOLGE = ["CHF", "USD", "GBP", "EUR"];
+const WAEHRUNGS_FRAMES = { CHF: 0, USD: 20, GBP: 40, EUR: 60 };
+const END_FRAME = 80; // Frame 80 = CHF (Kreis schliesst sich)
+
+// Wo steht die Animation gerade?
+let aktuellerFrame = 0;
+
+// Animation beim Laden auf CHF stellen
+animOben.addEventListener("DOMLoaded", () => animOben.goToAndStop(0, true));
+animUnten.addEventListener("DOMLoaded", () => animUnten.goToAndStop(0, true));
+
+// Klick auf eine der beiden Animationen → nächste Währung
+function naechsteWaehrung() {
+  const index = WAEHRUNGS_REIHENFOLGE.indexOf(selectedCurrency);
+  const naechste = WAEHRUNGS_REIHENFOLGE[(index + 1) % WAEHRUNGS_REIHENFOLGE.length];
+  waehrungSetzen(naechste);
+}
+
+document.getElementById("lottie-btn-oben").addEventListener("click", naechsteWaehrung);
+document.getElementById("lottie-btn-unten").addEventListener("click", naechsteWaehrung);
+
+/* =========================
+   WÄHRUNG SETZEN
+========================= */
+
+function waehrungSetzen(waehrung) {
+  const zielFrame = WAEHRUNGS_FRAMES[waehrung];
+
+  selectedCurrency = waehrung;
+
+  // Preissymbole aktualisieren
+  document.querySelectorAll(".price-currency").forEach((el) => {
+    el.textContent = currencySymbols[waehrung];
+  });
+
+  // Animation abspielen – immer vorwärts
+  [animOben, animUnten].forEach((anim) => {
+    if (zielFrame > aktuellerFrame) {
+      // normaler Schritt vorwärts (z. B. CHF → USD)
+      anim.playSegments([aktuellerFrame, zielFrame], true);
+    } else {
+      // zurück zu CHF: bis ans Ende spielen (Frame 80 = CHF)
+      anim.playSegments([aktuellerFrame, END_FRAME], true);
+    }
+  });
+
+  // Merker aktualisieren (CHF wird intern als 0 behandelt)
+  aktuellerFrame = zielFrame;
+
+  // Chart aktualisieren
+  updateChart(selectedMetal);
+}
+
+/* =========================
+   Einheits buttons
+========================= */
+
+/* =========================
+   LOTTIE ANIMATIONEN
+========================= */
+
+const animOben2 = lottie.loadAnimation({
+  container: document.getElementById("lottie-btn-2-oben"),
+  renderer: "svg",
+  loop: false,
+  autoplay: false,
+  path: "assets/animations/einheits-animation-lottie.json",
+});
+
+const animUnten2 = lottie.loadAnimation({
+  container: document.getElementById("lottie-btn-2-unten"),
+  renderer: "svg",
+  loop: false,
+  autoplay: false,
+  path: "assets/animations/einheits-animation-lottie.json",
+});
+
+// Reihenfolge + zugehörige Frames an EINEM Ort
+const EINHEITEN_REIHENFOLGE = ["OZT", "KG", "G", "GRN"];
+const EINHEITEN_FRAMES = { OZT: 0, KG: 20, G: 40, GRN: 60 };
+const EINHEITEN_END_FRAME = 80; // Frame 80 = OZT (Kreis schliesst sich)
+
+const einheitsLabels = {
+  OZT: "/ oz",
+  KG: "/ kg",
+  G: "/ g",
+  GRN: "/ grain",
+};
+
+// Wo steht die Animation gerade?
+let aktuellerFrameEinheiten = 0;
+
+// Animation beim Laden auf OZT stellen
+animOben2.addEventListener("DOMLoaded", () => animOben2.goToAndStop(0, true));
+animUnten2.addEventListener("DOMLoaded", () => animUnten2.goToAndStop(0, true));
+
+// Klick auf eine der beiden Animationen → nächste Einheit
+function naechsteEinheit() {
+  const index = EINHEITEN_REIHENFOLGE.indexOf(selectedUnit);
+  const naechste = EINHEITEN_REIHENFOLGE[(index + 1) % EINHEITEN_REIHENFOLGE.length];
+  einheitSetzen(naechste);
+}
+
+document.getElementById("lottie-btn-2-oben").addEventListener("click", naechsteEinheit);
+document.getElementById("lottie-btn-2-unten").addEventListener("click", naechsteEinheit);
+
+/* =========================
+   EINHEIT SETZEN
+========================= */
+
+function einheitSetzen(einheit) {
+  const zielFrame = EINHEITEN_FRAMES[einheit];
+
+  selectedUnit = einheit;
+
+  document.querySelectorAll(".price-unit-label").forEach((el) => {
+    el.textContent = einheitsLabels[einheit];
+  });
+
+
+  // Animation abspielen – immer vorwärts
+  [animOben2, animUnten2].forEach((anim) => {
+    if (zielFrame > aktuellerFrameEinheiten) {
+      // normaler Schritt vorwärts (z. B. OZT → KG)
+      anim.playSegments([aktuellerFrameEinheiten, zielFrame], true);
+    } else {
+      // zurück zu OZT: bis ans Ende spielen (Frame 80 = OZT)
+      anim.playSegments([aktuellerFrameEinheiten, EINHEITEN_END_FRAME], true);
+    }
+  });
+
+  // Merker aktualisieren (OZT wird intern als 0 behandelt)
+  aktuellerFrameEinheiten = zielFrame;
+
+  // Chart aktualisieren
+  updateChart(selectedMetal);
+}
+
+
+
 
 /* ===============================
    YEARLY GOLD AVERAGE DATA
@@ -558,14 +679,6 @@ const chart = new Chart(canvas, {
   },
 });
 
-function changeCurrency(currency) {
-  selectedCurrency = currency;
-
-  const activeMetal =
-    document.querySelector(".metal-btn.active")?.dataset.metal || "gold";
-
-  updateChart(activeMetal);
-}
 
 function renderChart(labels, values, metal) {
   const colorMap = {

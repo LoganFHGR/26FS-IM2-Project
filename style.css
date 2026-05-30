@@ -467,6 +467,16 @@ nav a:hover {
 
 /* #region Währung und Einheits Buttons */
 
+#lottie-btn-oben, #lottie-btn-unten, #lottie-btn-2-oben, #lottie-btn-2-unten {
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  display: inline-block;
+}
+
 .waehrungundeinheitcontainer {
   display: flex;
   flex: 1;
