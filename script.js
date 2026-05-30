@@ -688,45 +688,58 @@ const METAL_COLORS = {
 
 const canvas = document.getElementById("priceChart");
 
-const chart = new Chart(canvas, {
-  type: "line",
-  data: {
-    labels: METAL_YEARLY_HISTORY.labels.All,
-    datasets: [
-      {
-        label: "Gold (USD)",
-        data: METAL_YEARLY_HISTORY.gold.CHF,
-        borderColor: METAL_COLORS.gold,
-        backgroundColor: "rgba(232,184,74,0.15)",
-        borderWidth: 2,
-        tension: 0,
-        fill: true,
-        pointRadius: 0.2,
-        pointHitRadius: 5,
-        pointHoverRadius: 5,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
+let chart; // im äusseren Scope, damit renderChart/updateChart darauf zugreifen
+
+requestAnimationFrame(() => {
+  chart = new Chart(canvas, {
+    type: "line",
+    data: {
+      labels: METAL_YEARLY_HISTORY.labels.All,
+      datasets: [
+        {
+          label: "Gold (USD)",
+          data: METAL_YEARLY_HISTORY.gold.CHF,
+          borderColor: METAL_COLORS.gold,
+          backgroundColor: "rgba(232,184,74,0.15)",
+          borderWidth: 2,
+          tension: 0,
+          fill: true,
+          pointRadius: 0.2,
+          pointHitRadius: 5,
+          pointHoverRadius: 5,
+        },
+      ],
     },
-    scales: {
-      x: {
-        ticks: {
-          color: "#8888B0",
-          maxTicksLimit: 10,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: "#8888B0",
+            maxTicksLimit: 10,
+          },
+        },
+        y: {
+          ticks: {
+            color: "#8888B0",
+          },
         },
       },
-      y: {
-        ticks: {
-          color: "#8888B0",
-        },
-      },
     },
-  },
+  });
+
+  const resizeObserver = new ResizeObserver(() => {
+    chart.resize();
+  });
+  resizeObserver.observe(document.getElementById("graphdisplay"));
+});
+
+window.addEventListener('resize', () => {
+  chart.resize();
 });
 
 function renderChart(labels, values, metal) {
