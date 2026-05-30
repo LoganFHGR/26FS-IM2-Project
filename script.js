@@ -7,7 +7,7 @@ const metalToCode = {
   palladium: "XPD",
 };
 
-const METALS_DEV_API_KEY = "CWFSTV98PJLHWOHXULAB117HXULAB";
+const METALS_DEV_API_KEY = "CWFSTV98PJLHWOHXULAB117HXULABdomi ";
 
 const METALS = [
   { code: "XAU", name: "Gold" },
@@ -56,7 +56,6 @@ const cache = {
 };
 
 function calculatePrice(rohPreis) {
-  
   const kurs = WECHSELKURSE[selectedCurrency];
   const einheit = EINHEITEN_FAKTOR[selectedUnit];
 
@@ -76,14 +75,18 @@ async function displayNewPrices(code) {
       priceElement.textContent = calculatePrice(data.price).toFixed(2);
       console.log("calculated new price");
     }
+
+    // update Bestandesrechner
+    renderBestandesrechner();
+
     // Hide placeholder, show chart
-    document.getElementById("chart-placeholder").style.display = "none";
-    document.getElementById("priceChart").style.display = "block";
+    /*     document.getElementById("chart-placeholder").style.display = "none";
+    document.getElementById("priceChart").style.display = "block"; */
   } catch (error) {
     console.error("Error fetching prices:", error);
     // Show placeholder, hide chart while loading
-    document.getElementById("chart-placeholder").style.display = "block";
-    document.getElementById("priceChart").style.display = "none";
+    /*     document.getElementById("chart-placeholder").style.display = "block";
+    document.getElementById("priceChart").style.display = "none"; */
   }
 }
 
@@ -94,9 +97,12 @@ async function displayCachedPrices(code) {
     const priceElement = document.querySelector(".price-value");
 
     if (priceElement) {
-       priceElement.textContent = calculatePrice(data.price).toFixed(2);
+      priceElement.textContent = calculatePrice(data.price).toFixed(2);
       console.log("calculated cached price");
     }
+
+    // update Bestandesrechner
+    renderBestandesrechner();
 
     /* // Hide placeholder, show chart
     document.getElementById("chart-placeholder").style.display = "none";
@@ -107,8 +113,6 @@ async function displayCachedPrices(code) {
     document.getElementById("priceChart").style.display = "none"; */
   }
 }
-
-
 
 const tenMinutes = 10 * 60 * 1000;
 
@@ -142,6 +146,9 @@ buttons.forEach(function (button) {
     // update global state
     selectedMetal = button.dataset.metal;
 
+    //update Bestandesrechner
+    renderBestandesrechner();
+
     let code = metalToCode[metall];
     if (
       cache[code].value === null ||
@@ -165,7 +172,7 @@ buttons.forEach(function (button) {
 
 let selectedMetal = "gold";
 let selectedCurrency = "CHF";
-let selectedUnit = "OZT";       
+let selectedUnit = "OZT";
 let selectedTimeframe = "All";
 
 /* =========================
@@ -229,12 +236,17 @@ animUnten.addEventListener("DOMLoaded", () => animUnten.goToAndStop(0, true));
 // Klick auf eine der beiden Animationen → nächste Währung
 function naechsteWaehrung() {
   const index = WAEHRUNGS_REIHENFOLGE.indexOf(selectedCurrency);
-  const naechste = WAEHRUNGS_REIHENFOLGE[(index + 1) % WAEHRUNGS_REIHENFOLGE.length];
+  const naechste =
+    WAEHRUNGS_REIHENFOLGE[(index + 1) % WAEHRUNGS_REIHENFOLGE.length];
   waehrungSetzen(naechste);
 }
 
-document.getElementById("lottie-btn-oben").addEventListener("click", naechsteWaehrung);
-document.getElementById("lottie-btn-unten").addEventListener("click", naechsteWaehrung);
+document
+  .getElementById("lottie-btn-oben")
+  .addEventListener("click", naechsteWaehrung);
+document
+  .getElementById("lottie-btn-unten")
+  .addEventListener("click", naechsteWaehrung);
 
 /* =========================
    WÄHRUNG SETZEN
@@ -268,6 +280,9 @@ function waehrungSetzen(waehrung) {
   updateChart(selectedMetal);
   displayCachedPrices(metalToCode[selectedMetal]);
   console.log("changed currency to " + waehrung);
+
+  //update Bestandesrechner
+  renderBestandesrechner();
 }
 
 /* =========================
@@ -300,11 +315,12 @@ const EINHEITEN_FRAMES = { OZT: 0, KG: 20, G: 40, GRN: 60 };
 const EINHEITEN_END_FRAME = 80; // Frame 80 = OZT (Kreis schliesst sich)
 
 const einheitsLabels = {
-  OZT: "/ oz",
-  KG: "/ kg",
-  G: "/ g",
-  GRN: "/ grain",
+  OZT: " oz",
+  KG: " kg",
+  G: " g",
+  GRN: " grain",
 };
+
 
 // Wo steht die Animation gerade?
 let aktuellerFrameEinheiten = 0;
@@ -316,12 +332,17 @@ animUnten2.addEventListener("DOMLoaded", () => animUnten2.goToAndStop(0, true));
 // Klick auf eine der beiden Animationen → nächste Einheit
 function naechsteEinheit() {
   const index = EINHEITEN_REIHENFOLGE.indexOf(selectedUnit);
-  const naechste = EINHEITEN_REIHENFOLGE[(index + 1) % EINHEITEN_REIHENFOLGE.length];
+  const naechste =
+    EINHEITEN_REIHENFOLGE[(index + 1) % EINHEITEN_REIHENFOLGE.length];
   einheitSetzen(naechste);
 }
 
-document.getElementById("lottie-btn-2-oben").addEventListener("click", naechsteEinheit);
-document.getElementById("lottie-btn-2-unten").addEventListener("click", naechsteEinheit);
+document
+  .getElementById("lottie-btn-2-oben")
+  .addEventListener("click", naechsteEinheit);
+document
+  .getElementById("lottie-btn-2-unten")
+  .addEventListener("click", naechsteEinheit);
 
 /* =========================
    EINHEIT SETZEN
@@ -332,10 +353,9 @@ function einheitSetzen(einheit) {
 
   selectedUnit = einheit;
 
-  document.querySelectorAll(".price-unit-label").forEach((el) => {
+  document.querySelectorAll(".unit-label").forEach((el) => {
     el.textContent = einheitsLabels[einheit];
   });
-
 
   // Animation abspielen – immer vorwärts
   [animOben2, animUnten2].forEach((anim) => {
@@ -355,10 +375,10 @@ function einheitSetzen(einheit) {
   updateChart(selectedMetal);
   displayCachedPrices(metalToCode[selectedMetal]);
   console.log("changed unit to " + selectedUnit);
+
+  //update Bestandesrechner
+  renderBestandesrechner();
 }
-
-
-
 
 /* ===============================
    YEARLY GOLD AVERAGE DATA
@@ -709,7 +729,6 @@ const chart = new Chart(canvas, {
   },
 });
 
-
 function renderChart(labels, values, metal) {
   const colorMap = {
     gold: METAL_COLORS.gold,
@@ -774,3 +793,82 @@ toggle.addEventListener("change", () => {
        var(--btn1) border-box`;
 });
 /* #endregion Toggle Button */
+
+/* #region Bestandesrechner */
+
+function getSafePricePerOz() {
+  const key = metalToCode[selectedMetal];
+  const data = cache[key]?.value;
+
+  if (typeof data?.price === "number" && !isNaN(data.price)) {
+    return data.price;
+  }
+
+  return null; // WICHTIG: nicht 0
+}
+
+function calculateHoldingValue(amountInput) {
+  const amount = parseFloat(amountInput);
+
+  if (isNaN(amount) || amount <= 0) {
+    return 0;
+  }
+
+  // 1. USD Preis pro oz holen
+  const priceUSD = getSafePricePerOz();
+  if (!priceUSD) return 0;
+
+  // 2. Umrechnung (USD → CHF/EUR/etc + Einheit)
+  const priceConverted =
+    priceUSD * WECHSELKURSE[selectedCurrency] * EINHEITEN_FAKTOR[selectedUnit];
+
+  // 3. Menge multiplizieren
+  const result = amount * priceConverted;
+
+  console.log(
+    `Metal: ${selectedMetal}, Amount: ${amount}, Price: ${priceConverted}, Result: ${result}`
+  );
+
+  return result;
+}
+
+function renderBestandesrechner() {
+  console.log("🚀 renderBestandesrechner wurde aufgerufen");
+  const input = document.querySelector(
+  "#bestandsrechner .bestandesrechner-mengeneingabeinput"
+);
+
+  const output = document.querySelector(".mengenwert");
+
+  if (!input || !output) return;
+
+  const result = calculateHoldingValue(input.value);
+
+  output.textContent = result.toFixed(2);
+
+  console.log("Anzeige aktualisiert:", result);
+}
+
+/* live input listener */
+function initBestandesrechner() {
+  const input = document.querySelector(
+    "#bestandsrechner .bestandesrechner-mengeneingabeinput"
+  );
+
+  if (!input) {
+    console.warn("Bestandesrechner Input nicht gefunden!");
+    return;
+  }
+
+  console.log("INPUT FOUND:", input);
+
+  input.addEventListener("input", (e) => {
+    renderBestandesrechner();
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initBestandesrechner);
+} else {
+  initBestandesrechner();
+}

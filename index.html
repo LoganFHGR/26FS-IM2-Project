@@ -66,7 +66,8 @@
               <div class="price">
                 <span id="price-value" class="price-value">4076.52</span>
                 <span id="price-currency" class="price-currency">$</span>
-                <span id="price-unit-label" class="price-unit-label">/ oz</span>
+                <span id="slash-label" class="slash">/</span>
+                <span id="price-unit-label" class="unit-label">oz</span>
               </div>
 
               <div class="price-change">
@@ -80,8 +81,16 @@
           </div>
 
           <div class="waehrungundeinheitcontainer">
-            <div id="lottie-btn-oben" role="button" aria-label="Animation button"></div>
-            <div id="lottie-btn-2-oben" role="button" aria-label="Animation button 2"></div>
+            <div
+              id="lottie-btn-oben"
+              role="button"
+              aria-label="Animation button"
+            ></div>
+            <div
+              id="lottie-btn-2-oben"
+              role="button"
+              aria-label="Animation button 2"
+            ></div>
           </div>
         </div>
         <div class="graphcontainer">
@@ -162,8 +171,9 @@
                     />
                     <div class="einheitsanzeige">
                       <span id="price-currency" class="price-currency">$</span>
-                      <span id="price-unit-label" class="price-unit-label"
-                        >/ oz</span
+                      <span id="slash-label" class="slash">/</span>
+                      <span id="price-unit-label" class="unit-label"
+                        >oz</span
                       >
                     </div>
                   </div>
@@ -176,10 +186,18 @@
 
             <div class="kaufen_verkaufen_rechte_spalte">
               <div class="waehrungundeinheitcontainer">
-                <div id="lottie-btn-unten" role="button" aria-label="Animation button"></div>
-                <div id="lottie-btn-2-unten" role="button" aria-label="Animation button 2"></div>
+                <div
+                  id="lottie-btn-unten"
+                  role="button"
+                  aria-label="Animation button"
+                ></div>
+                <div
+                  id="lottie-btn-2-unten"
+                  role="button"
+                  aria-label="Animation button 2"
+                ></div>
               </div>
-              <div class="bestandsrechnercontainer">
+              <div class="bestandsrechnercontainer" id="bestandsrechner">
                 <div class="bestandesrechener_header">
                   <span class="kaufen_verkaufen-label">Bestandesrechner</span>
                 </div>
@@ -188,16 +206,14 @@
                   <div class="mengeneingabe">
                     <input
                       type="number"
-                      class="mengeneingabeinput"
+                      class="bestandesrechner-mengeneingabeinput"
                       min="0"
                       step="0.01"
                       inputmode="numeric"
                       placeholder="0.00"
                     />
                     <div class="einheitsanzeige">
-                      <span id="price-unit-label" class="price-unit-label"
-                        >oz</span
-                      >
+                      <span id="price-unit-label" class="unit-label">oz</span>
                     </div>
                   </div>
                   <div class="Gesamtwert-interface">
