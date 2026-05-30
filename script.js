@@ -7,7 +7,7 @@ const metalToCode = {
   palladium: "XPD",
 };
 
-const METALS_DEV_API_KEY = "CWFSTV98PJLHWOHXULAB117HXULABDOMI";
+const METALS_DEV_API_KEY = "CWFSTV98PJLHWOHXULAB117HXULAB";
 
 const METALS = [
   { code: "XAU", name: "Gold" },
@@ -15,6 +15,20 @@ const METALS = [
   { code: "XPT", name: "Platin" },
   { code: "XPD", name: "Palladium" },
 ];
+
+const WECHSELKURSE = {
+  USD: 1,
+  CHF: 0.88,
+  EUR: 0.92,
+  GBP: 0.79,
+};
+
+const EINHEITEN_FAKTOR = {
+  KG: 1,
+  G: 0.001,
+  OZT: 0.0311035,
+  GRN: 0.0000648,
+};
 
 async function fetchMetalPrice(code) {
   const codeToName = {
@@ -33,12 +47,22 @@ async function fetchMetalPrice(code) {
 
   return { price: price, change: null, changePc: null, gram24k: null };
 }
+
 const cache = {
   XAU: { value: null, lastFetched: null },
   XAG: { value: null, lastFetched: null },
   XPT: { value: null, lastFetched: null },
   XPD: { value: null, lastFetched: null },
 };
+
+function calculatePrice(rohPreis) {
+  
+  const kurs = WECHSELKURSE[selectedCurrency];
+  const einheit = EINHEITEN_FAKTOR[selectedUnit];
+
+  const ergebnis = rohPreis * kurs * einheit;
+  return ergebnis;
+}
 
 async function displayNewPrices(code) {
   try {
@@ -49,8 +73,8 @@ async function displayNewPrices(code) {
     const priceElement = document.querySelector(".price-value");
 
     if (priceElement) {
-      priceElement.textContent = data.price.toFixed(2);
-      console.log("Displayed new price");
+      priceElement.textContent = calculatePrice(data.price).toFixed(2);
+      console.log("Prepared new price");
     }
     // Hide placeholder, show chart
     document.getElementById("chart-placeholder").style.display = "none";
@@ -70,8 +94,8 @@ async function displayCachedPrices(code) {
     const priceElement = document.querySelector(".price-value");
 
     if (priceElement) {
-      priceElement.textContent = data.price.toFixed(2);
-      console.log("Displayed cached price");
+       priceElement.textContent = calculatePrice(data.price).toFixed(2);
+      console.log("Prepared cached price");
     }
 
     /* // Hide placeholder, show chart
@@ -83,6 +107,8 @@ async function displayCachedPrices(code) {
     document.getElementById("priceChart").style.display = "none"; */
   }
 }
+
+
 
 const tenMinutes = 10 * 60 * 1000;
 
@@ -240,6 +266,7 @@ function waehrungSetzen(waehrung) {
 
   // Chart aktualisieren
   updateChart(selectedMetal);
+  displayCachedPrices(metalToCode[selectedMetal]);
 }
 
 /* =========================
@@ -325,6 +352,7 @@ function einheitSetzen(einheit) {
 
   // Chart aktualisieren
   updateChart(selectedMetal);
+  displayCachedPrices(metalToCode[selectedMetal]);
 }
 
 

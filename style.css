@@ -468,18 +468,22 @@ nav a:hover {
 /* #region Währung und Einheits Buttons */
 
 #lottie-btn-oben, #lottie-btn-unten, #lottie-btn-2-oben, #lottie-btn-2-unten {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   border: none;
   background: none;
   padding: 0;
-  display: inline-block;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
+
+
 
 .waehrungundeinheitcontainer {
   display: flex;
-  flex: 1;
+  flex-direction: row;
   gap: 20px;
 }
 
@@ -948,7 +952,7 @@ input[type="number"] {
   flex-direction: column;
   padding: 20px;
   gap: 10px;
-  min-height: 169px;
+  height:193px;
 }
 
 .bestandesrechner-interface {
@@ -1016,11 +1020,6 @@ input[type="number"] {
   header {
     flex-direction: row;
     align-items: last baseline;
-  }
-
-  .newsimagecontainer {
-    display: block;
-    max-width: 100%;
   }
 }
 
@@ -1096,13 +1095,13 @@ input[type="number"] {
 
   .kaufen_verkaufen_container {
     flex: 729;
-    min-width: 0;
+    min-width: 0; 
     flex-direction: row;
   }
 
   .kaufen_verkaufen_imagecontainer {
     display: block;
-    flex: 385;
+    flex: 400;
     min-width: 0;
   }
 
@@ -1115,7 +1114,8 @@ input[type="number"] {
   .kaufen_verkaufen_rechte_spalte {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 40px;
   }
 
   .footer {
