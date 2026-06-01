@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+}
+
 /* #region Rootsettings */
 
 :root {
@@ -28,7 +38,7 @@
   --fs-md: 1rem;
   --fs-lg: 1.25rem;
   --fs-xl: 1.5rem;
-  --fs-display: 2.75rem;
+  --fs-display: 3.25rem;
 
   /*Background-Gradients */
   --bgtotal: linear-gradient(165deg, #08080c, #0e0e1a);
@@ -129,17 +139,26 @@
   align-items: center;
   justify-content: center;
   grid-template-columns: minmax(0, 1fr);
-  gap: 30px;
+  gap: 55px;
   max-width: 1114px;
+  width: 100%;
   margin-inline: auto;
+  padding: 20px;
+  flex: 1;
+  margin-bottom: 30px;
 }
 
 /* #region Header */
 body {
   background: var(--bgcolor2);
+  background-image: linear-gradient(135deg, transparent 0%, rgba(217, 136, 69, 0.04) 100%);
+  background-attachment: fixed;
   color: white;
   font-family: "Roboto", sans-serif;
-  margin: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
@@ -355,6 +374,8 @@ nav a:hover {
   height: 100%;
   min-height: 170px;
 }
+
+
 
 .price-container-gold {
   background:
@@ -588,7 +609,7 @@ nav a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-around;
   gap: 15px;
 
 }
@@ -596,6 +617,7 @@ nav a:hover {
 .graphcontrols-label {
   color: var(--textcolor2);
   font-size: var(--fs-2xs);
+  font-weight: bold;
 }
 
 .btn-zeitspanne {
@@ -849,6 +871,7 @@ nav a:hover {
 .menge-label {
   color: var(--textcolor2);
   font-size: var(--fs-xs);
+  font-weight: bold;
 }
 
 /* #region Mengeneingabe */
@@ -908,6 +931,7 @@ input[type="number"] {
   width: 70px;
   align-items: center;
   justify-content: center;
+  gap: 2px;
   font-size: var(--fs-md);
   color: var(--textcolor1);
   align-self: stretch;
@@ -917,7 +941,10 @@ input[type="number"] {
   border: none;
   background: transparent;
   font-weight: bold;
+  font-size: var(--fs-sm);
+  font-weight: bold;
 }
+
 
 /* #endregion Mengeneingabe */
 
@@ -1012,23 +1039,114 @@ input[type="number"] {
 
 /* #endregion Kaufen Verkaufen Section*/
 
+/* Legal Pages */
+
+.legal-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 20px 0 40px;
+}
+
+.legal-title {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--textcolor1);
+  margin: 0;
+  padding: 0;
+}
+
+.legal-intro {
+  color: var(--textcolor1);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.legal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 2px solid var(--textcolor2);
+  padding-left: 16px;
+}
+
+.legal-section h3 {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--textcolor1);
+  margin: 0;
+  padding: 0;
+}
+
+.legal-section p,
+.legal-section li {
+  font-size: var(--fs-sm);
+  color: var(--textcolor1);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.legal-section ul {
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.legal-section a,
+.legal-section a:visited {
+  color: var(--textcolor2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-section a:hover {
+  color: var(--textcolor1);
+}
+
 /* Footer */
 
 .footer-navcontainer, .copierightcontainer{
   min-width: 0;
 }
 
+.copierightcontainer{ 
+  font-size: var(--fs-xs);
+}
+
+
+.footer-navcontainer nav a,
+.footer-navcontainer nav a:visited {
+  font-size: var(--fs-xs);
+}
+
+
+
 .footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0px;
+  padding: 20px;
+  max-width: 1114px;
+  margin-inline: auto;
   }
+
+
+/*  Responsive Design graphcontrolbts ab grösser als das grösste Handy */
+@media (min-width: 431px){
+  .graphcontrolbtns {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+}
 
 /*  Responsive Design Tablet */
 
-@media (min-width: 624px) {
+@media (min-width: 600px) {
   /* Font Sizes Tablet */
   :root {
     --fs-2xs: 0.6875rem;
@@ -1042,7 +1160,7 @@ input[type="number"] {
   }
 
   body {
-    margin: 30px 10%;
+    margin: 20px clamp(10px, 3vw, 40px);
   }
 
   header {
@@ -1051,8 +1169,8 @@ input[type="number"] {
   }
 
   .layout {
-    grid-template-columns: minmax(0, 1fr);  /* ← DAS ist der entscheidende Fix */
-    gap: 60px;
+    grid-template-columns: minmax(0, 1fr); 
+    margin-bottom: 30px;
   }
 
   .trackersection {
@@ -1090,7 +1208,7 @@ input[type="number"] {
   }
 
   .graphcontrols-label {
-    font-size: var(--fs-sm);
+    font-size: var(--fs-xs);
     color: var(--textcolor2);
     font-weight: bold;
   }
@@ -1112,15 +1230,12 @@ input[type="number"] {
     grid-area: preis;
   }
 
-  #lottie-btn-oben, #lottie-btn-2-oben  {
-  }
+
 
   .waehrungundeinheitcontainer {
-    grid-area: rechts;
     display: flex;
-    flex-direction: column;
-
-    max-width: 80%;
+    flex-direction: row;
+    max-width: 100%;
   }
 
  /* region Kaufen / Verkaufen */
@@ -1130,6 +1245,13 @@ input[type="number"] {
     padding: 0;
     margin-top: 30px;
   }
+
+  .kaufen_verkaufen_container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
 
   .kaufen_verkaufen_linke_spalte {
     display: flex;
@@ -1157,7 +1279,16 @@ input[type="number"] {
     display: none;
   }
 }
+}
 /*  Responsive Design Desktop */
+
+@media (min-width: 624px) {
+  .footer-navcontainer nav a,
+  .footer-navcontainer nav a:visited,
+  .copierightcontainer {
+    font-size: var(--fs-sm);
+  }
+}
 
 @media (min-width: 950px) {
   /* Font Sizes Desktop */
@@ -1176,11 +1307,16 @@ input[type="number"] {
 
   .layout {
     grid-template-columns: minmax(0, 1fr);  /* ← DAS ist der entscheidende Fix */
-    gap: 80px;
+    align-items: flex-start;
+    gap: 0px;
   }
 
   body {
-    margin: 30px 4%;
+    margin: 0;
+  }
+
+  .layout {
+    padding: 30px 27px;
   }
 
   h1.kaufen-label {
@@ -1242,7 +1378,7 @@ input[type="number"] {
   }
 
   .graphcontrols-label {
-    font-size: var(--fs-sm);
+    font-size: var(--fs-xs);
     color: var(--textcolor2);
     font-weight: bold;
   }
@@ -1318,8 +1454,8 @@ input[type="number"] {
 @media (min-width: 1040px) {
 
   .graphcontrols-label {
-    font-size: var(--fs-md);
-    color: var(--textcolor1);
+    font-size: var(--fs-xs);
+    color: var(--textcolor2);
     font-weight: bold;
   }
 

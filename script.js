@@ -334,7 +334,7 @@ const einheitsLabels = {
   OZT: " oz",
   KG: " kg",
   G: " g",
-  GRN: " grain",
+  GRN: "grn",
 };
 
 // Wo steht die Animation gerade?
