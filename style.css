@@ -797,14 +797,24 @@ nav a:hover {
   display: flex;
   flex-direction: row;
   gap: 15px;
+  margin: 0;
 }
 
+.kaufen-label{
+  font-size: var(--fs-md);
+  font-weight: bold;
+  color: var(--textcolor1);
+  margin: 0;
+  align-self: baseline;
+  opacity: 1;
+}
 
 .verkaufen-label {
-  font-size: var(--fs-sl);
+  font-size: var(--fs-md);
   font-weight: bold;
   color: var(--textcolor1);
   opacity: 0.5;
+  margin: 0;
   align-self: baseline;
 }
 
