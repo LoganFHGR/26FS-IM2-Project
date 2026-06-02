@@ -8,7 +8,14 @@ async function displayNewPrices(code) {
 
     const priceElement = document.querySelector(".price-value");
     if (priceElement) {
-      priceElement.textContent = calculatePrice(data.price).toFixed(2);
+      let finalPrice = calculatePrice(data.price);
+      
+      if (finalPrice > 0 && finalPrice < 0.01) {
+        finalPrice = 0.01;
+      }
+
+      priceElement.textContent = finalPrice.toFixed(2);
+      console.log("calculated news price");
     }
     renderBestandesrechner();
   } catch (error) {
@@ -23,20 +30,19 @@ async function displayCachedPrices(code) {
     const priceElement = document.querySelector(".price-value");
 
     if (priceElement) {
-      priceElement.textContent = calculatePrice(data.price).toFixed(2);
+      let finalPrice = calculatePrice(data.price);
+      
+      if (finalPrice > 0 && finalPrice < 0.01) {
+        finalPrice = 0.01;
+      }
+
+      priceElement.textContent = finalPrice.toFixed(2);
       console.log("calculated cached price");
     }
 
-    // update Bestandesrechner
     renderBestandesrechner();
-
-    /* // Hide placeholder, show chart
-    document.getElementById("chart-placeholder").style.display = "none";
-    document.getElementById("priceChart").style.display = "block"; */
   } catch (error) {
     console.error("Error fetching prices:", error);
-    /*  document.getElementById("chart-placeholder").style.display = "block";
-    document.getElementById("priceChart").style.display = "none"; */
   }
 }
 
@@ -577,7 +583,7 @@ coinFlipAnim.addEventListener("complete", () => {
 /* #region Bestandesrechner */
 
 function renderBestandesrechner() {
-  console.log("🚀 renderBestandesrechner wurde aufgerufen");
+  console.log("renderBestandesrechner wurde aufgerufen");
   const input = document.querySelector(
     "#bestandsrechner .bestandesrechner-mengeneingabeinput",
   );
@@ -586,7 +592,12 @@ function renderBestandesrechner() {
 
   if (!input || !output) return;
 
-  const result = calculateHoldingValue(input.value);
+  let result = calculateHoldingValue(input.value);
+
+  const inputAmount = parseFloat(input.value);
+  if (inputAmount > 0 && result < 0.01) {
+      result = 0.01;
+  }
 
   output.textContent = result.toFixed(2);
 

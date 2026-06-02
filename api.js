@@ -6,7 +6,7 @@ const metalToCode = {
   palladium: "XPD",
 };
 
-const METALS_DEV_API_KEY = "CWFSTV98PJLHWOHXULAB117HXULABd";
+const METALS_DEV_API_KEY = "CWFSTV98PJLHWOHXULAB117HXULAB";
 
 const METALS = [
   { code: "XAU", name: "Gold" },
