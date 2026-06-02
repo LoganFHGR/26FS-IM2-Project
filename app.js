@@ -309,7 +309,6 @@ function einheitSetzen(einheit) {
     Graph setup
   ========================== */
 
-
 //Daten umfromen
 function transformTimeseriesData(data, metalCode) {
   const labels = [];
@@ -344,7 +343,6 @@ Object.entries(timeframeButtons).forEach(([id, timeframe]) => {
   });
 });
 
-
 /* Graphen currency conversion */
 
 function convertArray(values) {
@@ -374,8 +372,8 @@ requestAnimationFrame(() => {
         {
           label: "Gold (USD)",
           data: METAL_YEARLY_HISTORY.gold.USD,
-          borderColor: METAL_COLORS.gold,
-          backgroundColor: "rgba(232,184,74,0.15)",
+          borderColor: METAL_COLORS[selectedMetal],
+          backgroundColor: METAL_COLORS[selectedMetal] + "33",
           borderWidth: 2,
           tension: 0.1,
           fill: true,
@@ -434,14 +432,14 @@ function renderChart(labels, values, metal) {
     palladium: METAL_COLORS.palladium,
   };
 
-  chart.data.labels = labels;
+  const color = colorMap[metal];
+
   chart.data.datasets[0].data = values;
   chart.data.datasets[0].label = metal;
+  chart.data.datasets[0].borderColor = color;
+  chart.data.datasets[0].backgroundColor = color + "33";
 
-  chart.data.datasets[0].borderColor = colorMap[metal];
-  chart.data.datasets[0].backgroundColor = colorMap[metal] + "33";
-  6;
-  chart.update("none");
+  chart.update();
 }
 
 async function updateChart(metal) {
@@ -548,7 +546,6 @@ function playCoinFlip() {
 actionBtn.addEventListener("click", () => {
   const overlay = document.getElementById("coin-flip-overlay");
   const text = document.getElementById("coin-flip-text");
-  
 
   actionBtn.style.opacity = "0";
 
