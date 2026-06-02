@@ -1028,6 +1028,57 @@ toggle.addEventListener("change", () => {
 });
 /* #endregion Toggle Button */
 
+/* =========================
+   COIN FLIP ANIMATION
+========================= */
+
+const coinFlipAnim = lottie.loadAnimation({
+  container: document.getElementById("coin-flip-overlay"),
+  renderer: "svg",
+  loop: false,
+  autoplay: false,
+  path: "assets/animations/coin-flip.json",
+});
+
+const amountInput = document.querySelector(".mengeneingabeinput");
+
+function playCoinFlip() {
+  const overlay = document.getElementById("coin-flip-overlay");
+  const text = document.getElementById("coin-flip-text");
+  const buyBtn = document.querySelector(".kaufen_verkaufen-btn");
+
+  // hide button during animation
+  buyBtn.style.opacity = "0";
+
+  // show animation + text
+  overlay.style.display = "block";
+  text.classList.add("show");
+
+  // example: run Lottie
+  coinFlipAnim.goToAndPlay(0, true);
+}
+
+actionBtn.addEventListener("click", () => {
+  const overlay = document.getElementById("coin-flip-overlay");
+  const text = document.getElementById("coin-flip-text");
+  
+
+  actionBtn.style.opacity = "0";
+
+  overlay.style.display = "block";
+  text.style.opacity = "1";
+
+  coinFlipAnim.stop();
+  coinFlipAnim.goToAndPlay(0, true);
+});
+
+coinFlipAnim.addEventListener("complete", () => {
+  document.getElementById("coin-flip-overlay").style.display = "none";
+  document.getElementById("coin-flip-text").style.opacity = "0";
+  actionBtn.style.opacity = "1";
+  amountInput.value = "";
+});
+
 /* #region Bestandesrechner */
 
 function getSafePricePerOz() {
