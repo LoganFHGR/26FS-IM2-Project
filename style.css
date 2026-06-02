@@ -663,6 +663,30 @@ nav a:hover {
   height: 300px; /* Changed from min-height to height to stop the infinite growth loop */
 }
 
+.graph-gold {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--gold-border-right) border-box;
+}
+
+.graph-silver {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--silver-border-right) border-box;
+}
+
+.graph-platinum {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--platinum-border-right) border-box;
+}
+
+.graph-palladium {
+  background:
+    linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
+    var(--palladium-border-right) border-box;
+}
+
 .graphdisplaycontainer {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,

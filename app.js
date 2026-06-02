@@ -66,6 +66,17 @@ buttons.forEach(function (button) {
 
     metalName.textContent = button.querySelector(".metal-icon").textContent;
 
+    let graph = document.querySelector(".graph");
+
+    graph.classList.remove(
+      "graph-gold",
+      "graph-silver",
+      "graph-platinum",
+      "graph-palladium",
+    );
+
+    graph.classList.add(`graph-${metall}`);
+
     //update chart
     updateChart(metall);
 
