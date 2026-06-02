@@ -1042,6 +1042,12 @@ input[type="number"] {
   height: 100%;
   margin-left: 20px;
 }
+
+.bestandesrechner-mengeneingabeinput:focus {
+  outline: none;
+  border: none;
+}
+
 .bestandesrechner-einheitsanzeige {
   background:
     linear-gradient(var(--bgcolor1), var(--bgcolor1)) padding-box,
