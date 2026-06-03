@@ -9,7 +9,7 @@ async function displayNewPrices(code) {
     const priceElement = document.querySelector(".price-value");
     if (priceElement) {
       let finalPrice = calculatePrice(data.price);
-      
+
       if (finalPrice > 0 && finalPrice < 0.01) {
         finalPrice = 0.01;
       }
@@ -31,7 +31,7 @@ async function displayCachedPrices(code) {
 
     if (priceElement) {
       let finalPrice = calculatePrice(data.price);
-      
+
       if (finalPrice > 0 && finalPrice < 0.01) {
         finalPrice = 0.01;
       }
@@ -408,6 +408,7 @@ requestAnimationFrame(() => {
       },
       scales: {
         x: {
+          type: "category",
           ticks: {
             color: "#8888B0",
             maxTicksLimit: 6,
@@ -450,7 +451,8 @@ function renderChart(labels, values, metal) {
   };
 
   const color = colorMap[metal];
-
+  
+  chart.data.labels = labels;
   chart.data.datasets[0].data = values;
   chart.data.datasets[0].label = metal;
   chart.data.datasets[0].borderColor = color;
@@ -483,6 +485,7 @@ async function updateChart(metal) {
     document.getElementById("priceChart").style.display = "block";
 
     renderChart(labels, convertArray(values), metal);
+    chart.resize();
   } catch (err) {
     console.error("Chart error:", err);
     console.log("API response was:", data); // add this
@@ -596,7 +599,7 @@ function renderBestandesrechner() {
 
   const inputAmount = parseFloat(input.value);
   if (inputAmount > 0 && result < 0.01) {
-      result = 0.01;
+    result = 0.01;
   }
 
   output.textContent = result.toFixed(2);
