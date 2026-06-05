@@ -337,7 +337,6 @@ function transformTimeseriesData(data, metalCode) {
 
   sorted.forEach(([date, row]) => {
     labels.push(date);
-    values.push(row.metals[metal]);
   });
 
   return { labels, values };
@@ -488,7 +487,6 @@ async function updateChart(metal) {
     chart.resize();
   } catch (err) {
     console.error("Chart error:", err);
-    console.log("API response was:", data); // add this
     document.getElementById("chart-placeholder").style.display = "block";
     document.getElementById("priceChart").style.display = "none";
   }
